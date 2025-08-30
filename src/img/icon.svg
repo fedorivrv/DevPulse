@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <symbol id="icon-logo" viewBox="0 0 112 32">
+      <path fill="#fff" d="M17 0h1l2 2v3l-2 2v4l2 1c2 1 3 2 3 4v6l-4 3c-3 0-5 0-6-2l-3 3v3l-1 2H6l-3-1a4 4 0 0 1 2-6h3l3-2-1-6-3-2-2 2-3-1-2-3 1-2 3-2 2 1 2 3 3 2 5-3V7h-1a4 4 0 0 1-1-5c1-1 1-2 3-2zm4 18a4 4 0 1 0-9 0 4 4 0 0 0 9 0zm82-6h2v4l2-1 3 1 1 3-1 4-2 1-3-1v1h-2V12zm4 5-2 1v2l1 2h1l2-1v-3l-1-1h-1zm-65-5 4 12h-3l-1-3h-4l-1 3h-2l4-12h3zm-2 3-1 4h3l-2-4zm50-3h3v11l-1 1h-2v-5h-5v5h-2V12h2v5h5v-5zm4 3h2v6l1 1 2-1v-6h2v9h-2v-1l-2 1-2-1-1-2v-6zm-30 0 3 1 1 2h-2v-1h-2v1l3 1 1 2v1l-3 2-2-1-1-2a96 96 0 0 0 2 0l1 1h1v-1l-3-2-1-1v-2l2-1zm14 0h1l2 1v2h-1l-1-1h-2v1l4 1 1 1-1 2-2 2-3-1-1-2h2v1h2l1-1-4-1-1-2v-2l3-1zm-25-2h2v2h2v2h-2v5h2v2h-1l-2-1-1-6h-1v-2h1v-2zm17 0h2v2h2v2h-2v5h2v1l-1 1-2-1-1-6h-1v-2h1v-2zm-42-1h1v12h-2V12h1zm23 3v2l-2 1-1 6-2-1v-8h2v1h1l2-1zm7 0h2v9h-2v-9zm-33-1 1 1v6h-2v-6l1-1zm34-2a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" style="fill:var(--color1, #fff)"/>
+    </symbol>
+    <symbol id="icon-right-arrow" viewBox="0 0 32 32">
+      <path fill="#fff" d="M7 29a1 1 0 0 0 2 0l17-12a1 1 0 0 0 1-1 1 1 0 0 0-1-1L9 3a1 1 0 0 0-2 0 1 1 0 0 0 0 1v24a1 1 0 0 0 0 1zM9 7l14 9-14 9V7z" style="fill:var(--color1, #fff)"/>
+    </symbol>
+    <symbol id="icon-caret-right" viewBox="0 0 31 32">
+      <path fill="#fff" d="m12 26 10-9-10-9v18z" style="fill:var(--color1, #fff)"/>
+    </symbol>
+    <symbol id="icon-down-arrow-alt" viewBox="0 0 31 32">
+      <path fill="#fff" d="m24 17-2-2-5 5V8h-3v12l-5-5-2 2 8 8 9-8z" style="fill:var(--color1, #fff)"/>
+    </symbol>
+    <symbol id="icon-logo-icon" viewBox="0 0 32 32">
+      <path fill="#fff" d="M18 3h1l2 2v2l-2 2v3l2 1a6 6 0 0 1-2 10c-2 1-3 0-5-1l-2 3v2l-1 1-3 1-2-2v-2l2-2h2l3-2c-1-2-2-3-1-5l-3-1-2 1-3-1-1-2 1-2a4 4 0 0 1 5-1l1 3 3 1 4-2V9h-1l-2-2 1-3 2-1zm-1 11c-2 0-3 2-3 4s2 3 4 3 4-2 4-4-3-3-5-3zm11-1h1v9l-1 1-1-1v-9h1zm-3 2h1v5h-2v-5h1z" style="fill:var(--color1, #fff)"/>
+    </symbol>
+    <symbol id="icon-left-arrow-alt" viewBox="0 0 31 32">
+      <path fill="#fff" d="m16 23-5-6h12v-2H11l5-6-2-2-8 9 8 8 2-1z" style="fill:var(--color1, #fff)"/>
+    </symbol>
+    <symbol id="icon-right-arrow-alt" viewBox="0 0 31 32">
+      <path fill="#fff" d="m14 23 2 1 9-8-9-9-2 2 6 6H8v2h12l-6 6z" style="fill:var(--color1, #fff)"/>
+    </symbol>
+    <symbol id="icon-Instagram" viewBox="0 0 31 32">
+      <path fill="#fff" d="M15 7a81 81 0 0 1 7 0l1 1 1 1 1 2a81 81 0 0 1-1 12l-1 1-1 1h-2a81 81 0 0 1-11 0l-2-1-1-1v-2A81 81 0 0 1 6 9l1-1 2-1h6zm0-2a84 84 0 0 0-7 0L6 7 4 9v2a85 85 0 0 0 0 13l2 2 2 1 3 1a84 84 0 0 0 12-1l2-1 1-2 1-3a84 84 0 0 0-1-12l-1-2-2-2h-8z" style="fill:var(--color1, #fff)"/>
+      <path fill="#fff" d="M15 10a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm8-10a1 1 0 1 1-3 0 1 1 0 0 1 3 0z" style="fill:var(--color1, #fff)"/>
+    </symbol>
+    <symbol id="icon-Facebook" viewBox="0 0 31 32">
+      <path fill="#fff" d="M28 17c0-8-6-13-13-13a13 13 0 0 0-2 25v-9h-3v-3h3v-3c0-4 2-5 5-5h3v3h-2l-2 2v3h4l-1 3h-3v9c6-1 11-6 11-12z" style="fill:var(--color1, #fff)"/>
+    </symbol>
+    <symbol id="icon-Youtube" viewBox="0 0 31 32">
+      <path fill="#fff" d="M28 10a3 3 0 0 0-3-2L15 7 5 8a3 3 0 0 0-2 2v12l2 3h20a3 3 0 0 0 3-3V10zM13 20v-8l6 4-6 4z" style="fill:var(--color1, #fff)"/>
+    </symbol>
+  </defs>
+</svg>
