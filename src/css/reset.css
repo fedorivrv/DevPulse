@@ -16,7 +16,7 @@ body {
   font-family: var(--font-primary, 'IBM Plex Sans'), sans-serif;
   line-height: 1.5;
   color: var(--color-fg, #1e1c1f);
-  background-color: var(--color-bg, #fff);
+  background-color: var(--color-scheme-1-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
