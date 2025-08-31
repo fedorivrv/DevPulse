@@ -1,11 +1,14 @@
 
+
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 64px;
   position: fixed;
+  top: 0;
   left: calc((100% / 2) - (320px / 2));
+  background-color: var(--color-scheme-1-background);
 }
 @media screen and (max-width:767px) {
   .nav {
