@@ -1,4 +1,9 @@
 import axios from 'axios';
+import {
+  errorApiIzT,
+  noDataIzT,
+  successDataIzT,
+} from './izitoast-functions.js';
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api/';
 let DATA_PASS;
 export let MAX_PAGE_ARTIST = 1;
@@ -45,19 +50,9 @@ export async function getArtists({ name, page, sortName, genre } = {}) {
 
 export async function getArtistAlbums(id) {
   try {
-    DATA_PASS = `artists/${id}/albums`;
-    const res = await axios.get(DATA_PASS, {});
-
-    const artistAlbums = res.data.albumsList;
-    if (
-      artistAlbums &&
-      Array.isArray(artistAlbums) &&
-      artistAlbums.length > 0
-    ) {
-      return artistAlbums;
-    } else {
-      return noDataIzT('artist albums');
-    }
+    const res = await axios.get(`artists/${id}/albums`);
+    console.log('RAW albums response:', res.data);
+    return res.data.albumsList || [];
   } catch (error) {
     errorApiIzT(error);
   }
@@ -77,7 +72,20 @@ export async function getArtist(id) {
   } catch (error) {
     errorApiIzT(error);
   }
+  
 }
+
+export async function getAlbumTracks(albumId) {
+  try {
+    const res = await axios.get(`albums/${albumId}/tracks`);
+    console.log('RAW tracks response:', res.data);
+    return res.data.tracks || [];
+  } catch (error) {
+    errorApiIzT(error);
+    return [];
+  }
+}
+
 
 export async function getRandomPageFeedbacks() {
   try {
@@ -124,3 +132,4 @@ export async function postFeedback(nameArtist, ratingArtist, descArtist) {
 function getRandomInt(n) {
   return Math.floor(Math.random() * n) + 1;
 }
+

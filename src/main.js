@@ -1,3 +1,4 @@
+import { openArtistModal } from './js/artist-modal-functionality';
 import {
   checkVisibleLoadBtn,
   createArtists,
@@ -36,4 +37,15 @@ btnLdMrEl.addEventListener('click', async e => {
     //функція виключення лоудера
     checkVisibleLoadBtn(page);
   }
+});
+const listArtistsEl = document.querySelector('.list-artists');
+
+listArtistsEl.addEventListener('click', (e) => {
+  const btn = e.target.closest('.learn-more-artist');
+  if (!btn) return;
+
+  const artistId = btn.getAttribute('data-id');
+  if (!artistId) return;
+
+  openArtistModal(artistId);
 });

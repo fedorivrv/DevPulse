@@ -1,0 +1,77 @@
+.hidden {
+    display: none !important;
+}
+
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal {
+    background: #111;
+    color: #fff;
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: white;
+}
+
+.loader {
+    text-align: center;
+    padding: 50px;
+    font-size: 18px;
+}
+
+.artist-header img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.albums {
+    margin-top: 20px;
+}
+
+.album {
+    margin-bottom: 20px;
+}
+
+.album-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 6px;
+    border-bottom: 1px solid #333;
+}
+
+.yt-link {
+    color: #f00;
+    cursor: pointer;
+}

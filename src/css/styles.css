@@ -14,4 +14,11 @@
 
 @import url('./artists.css');
 
+
+
+/* Sections style */
+
+
+
+@import url('./artist-modal.css');
 @import url('./footer.css');
