@@ -1,0 +1,83 @@
+/* --- Backdrop --- */
+#artist-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* затемнення фону */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: auto;
+    /* дозволяє скролити модалку при великий висоті */
+}
+
+#artist-modal-backdrop.hidden {
+    display: none;
+}
+
+/* --- Модалка --- */
+#artist-modal {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-height: 90vh;
+    /* обмежує висоту модалки */
+    width: 90%;
+    max-width: 800px;
+    overflow-y: auto;
+    /* прокрутка всередині модалки */
+    padding: 24px;
+    position: relative;
+}
+
+/* --- Кнопка закриття --- */
+#artist-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* --- Вміст модалки --- */
+.artist-header img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.albums {
+    margin-top: 24px;
+}
+
+.album {
+    margin-bottom: 16px;
+}
+
+.tracks {
+    margin-top: 8px;
+}
+
+.track {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 8px;
+    padding: 4px 0;
+}
+
+.track-header {
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+.yt-link {
+    color: #ff0000;
+    font-weight: bold;
+    text-decoration: none;
+}

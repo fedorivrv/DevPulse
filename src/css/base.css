@@ -1,124 +1,80 @@
 :root {
-    --color-scheme-1-background: var(--color-neutral-darkest);
-      --color-neutral-darkest: #060307;
-      --color-scheme-1-border: var(--opacity-white-20);
-      --color-scheme-1-text: var(--color-white);
-      --color-neutral-lighter: #d9d9d9;
-      --color-white: #fff;
-      --color-neutral-lightest: #f2f2f2;
-      --color-neutral-light: #b4b3b4;
-      --color-neutral: #828183;
-      --color-neutral-dark: #504e51;
-      --color-neutral-darker: #1e1c1f;
-      --opacity-transparent: rgba(255, 255, 255, 0);
-      --color-scheme-1-foreground: var(--color-neutral-darkest);
-      --color-scheme-1-accent: var(--color-white);
-      --opacity-white-5: rgba(255, 255, 255, 0.05);
-      --opacity-white-10: rgba(255, 255, 255, 0.1);
-      --opacity-white-15: rgba(255, 255, 255, 0.15);
-      --opacity-white-20: rgba(255, 255, 255, 0.2);
-      --opacity-white-30: rgba(255, 255, 255, 0.3);
-      --opacity-white-40: rgba(255, 255, 255, 0.4);
-      --opacity-white-50: rgba(255, 255, 255, 0.5);
-      --opacity-white-60: rgba(255, 255, 255, 0.6);
-      --opacity-neutral-darkest-5: rgba(6, 3, 7, 0.05);
-      --opacity-neutral-darkest-10: rgba(6, 3, 7, 0.1);
-      --opacity-neutral-darkest-15: rgba(6, 3, 7, 0.15);
-      --opacity-neutral-darkest-20: rgba(6, 3, 7, 0.2);
-      --opacity-neutral-darkest-30: rgba(6, 3, 7, 0.3);
-      --opacity-neutral-darkest-40: rgba(6, 3, 7, 0.4);
-      --opacity-neutral-darkest-50: rgba(6, 3, 7, 0.5);
-      --opacity-neutral-darkest-60: rgba(6, 3, 7, 0.6);
-      --color-affair-lightest: #f1ecf4;
-      --color-affair-lighter: #e3d9e9;
-      --color-affair-light: #9f7ab2;
-      --color-affair: #764191;
-      --color-affair-dark: #5e3474;
-      --color-affair-darker: #2f1a3a;
-      --color-affair-darkest: #23132b;
-      --color-chateau-green-lightest: #ecf4ed;
-      --color-chateau-green-lighter: #d9eadc;
-      --color-chateau-green-light: #7ab686;
-      --color-chateau-green: #419853;
-      --color-chateau-green-dark: #347942;
-      --color-chateau-green-darker: #1a3c21;
-      --color-chateau-green-darkest: #132d18;
-      --color-scheme-2-text: var(--color-white);
-      --color-scheme-2-background: var(--color-neutral-darker);
-      --color-scheme-2-border: var(--opacity-white-20);
-      --color-scheme-2-accent: var(--color-white);
-      --color-scheme-2-foreground: var(--color-neutral-darker);
-      --color-scheme-3-text: var(--color-white);
-      --color-scheme-3-background: var(--color-affair-darkest);
-      --color-scheme-3-border: var(--opacity-white-20);
-      --color-scheme-3-accent: var(--color-white);
-      --color-scheme-3-foreground: var(--color-affair-darkest);
-      --color-error-red: #af0404;
-  /* ==================================== */
-  /* 🎨 Базові кольори */
-  /* ==================================== */
-  --white: #ffffff;
-  --black: #060307;
-
-  --neutral-100: #f2f2f2;
-  --neutral-200: #d9d9d9;
-  --neutral-300: #b4b3b4;
-  --neutral-400: #828183;
-  --neutral-500: #504e51;
-  --neutral-600: #1e1c1f;
-  --neutral-700: #060307;
-
-  /* 🌈 Акцентні палітри */
-  --affair-100: #f1ecf4;
-  --affair-200: #e3d9e9;
-  --affair-300: #9f7ab2;
-  --affair-400: #764191;
-  --affair-500: #5e3474;
-  --affair-600: #2f1a3a;
-  --affair-700: #23132b;
-
-  --chateau-100: #ecf4ed;
-  --chateau-200: #d9eadc;
-  --chateau-300: #7ab686;
-  --chateau-400: #419853;
-  --chateau-500: #347942;
-  --chateau-600: #1a3c21;
-  --chateau-700: #132d18;
-
-  /* 🚨 Стан */
-  --error: #af0404;
-
-  /* 🔲 Прозорості (через RGB базового чорного/білого) */
-  --black-rgb: 6, 3, 7;
-  --white-rgb: 255, 255, 255;
-
-  --white-5: rgba(var(--white-rgb), 0.05);
-  --white-10: rgba(var(--white-rgb), 0.1);
-  --white-20: rgba(var(--white-rgb), 0.2);
-  --white-50: rgba(var(--white-rgb), 0.5);
-
-  --black-10: rgba(var(--black-rgb), 0.1);
-  --black-30: rgba(var(--black-rgb), 0.3);
-  --black-50: rgba(var(--black-rgb), 0.5);
-
-  /* ==================================== */
-  /* 🎭 Семантичні кольори (для теми) */
-  /* ==================================== */
-  --color-bg: var(--neutral-700);
-  --color-fg: var(--neutral-100);
-  --color-border: var(--white-20);
-  --color-accent: var(--white);
+  --color-scheme-1-background: var(--color-neutral-darkest);
+  --color-neutral-darkest: #060307;
+  --color-scheme-1-border: var(--opacity-white-20);
+  --color-scheme-1-text: var(--color-white);
+  --color-neutral-lighter: #d9d9d9;
+  --color-white: #fff;
+  --color-neutral-lightest: #f2f2f2;
+  --color-neutral-light: #b4b3b4;
+  --color-neutral: #828183;
+  --color-neutral-dark: #504e51;
+  --color-neutral-darker: #1e1c1f;
+  --opacity-transparent: rgba(255, 255, 255, 0);
+  --color-scheme-1-foreground: var(--color-neutral-darkest);
+  --color-scheme-1-accent: var(--color-white);
+  --opacity-white-5: rgba(255, 255, 255, 0.05);
+  --opacity-white-10: rgba(255, 255, 255, 0.1);
+  --opacity-white-15: rgba(255, 255, 255, 0.15);
+  --opacity-white-20: rgba(255, 255, 255, 0.2);
+  --opacity-white-30: rgba(255, 255, 255, 0.3);
+  --opacity-white-40: rgba(255, 255, 255, 0.4);
+  --opacity-white-50: rgba(255, 255, 255, 0.5);
+  --opacity-white-60: rgba(255, 255, 255, 0.6);
+  --opacity-neutral-darkest-5: rgba(6, 3, 7, 0.05);
+  --opacity-neutral-darkest-10: rgba(6, 3, 7, 0.1);
+  --opacity-neutral-darkest-15: rgba(6, 3, 7, 0.15);
+  --opacity-neutral-darkest-20: rgba(6, 3, 7, 0.2);
+  --opacity-neutral-darkest-30: rgba(6, 3, 7, 0.3);
+  --opacity-neutral-darkest-40: rgba(6, 3, 7, 0.4);
+  --opacity-neutral-darkest-50: rgba(6, 3, 7, 0.5);
+  --opacity-neutral-darkest-60: rgba(6, 3, 7, 0.6);
+  --color-affair-lightest: #f1ecf4;
+  --color-affair-lighter: #e3d9e9;
+  --color-affair-light: #9f7ab2;
+  --color-affair: #764191;
+  --color-affair-dark: #5e3474;
+  --color-affair-darker: #2f1a3a;
+  --color-affair-darkest: #23132b;
+  --color-chateau-green-lightest: #ecf4ed;
+  --color-chateau-green-lighter: #d9eadc;
+  --color-chateau-green-light: #7ab686;
+  --color-chateau-green: #419853;
+  --color-chateau-green-dark: #347942;
+  --color-chateau-green-darker: #1a3c21;
+  --color-chateau-green-darkest: #132d18;
+  --color-scheme-2-text: var(--color-white);
+  --color-scheme-2-background: var(--color-neutral-darker);
+  --color-scheme-2-border: var(--opacity-white-20);
+  --color-scheme-2-accent: var(--color-white);
+  --color-scheme-2-foreground: var(--color-neutral-darker);
+  --color-scheme-3-text: var(--color-white);
+  --color-scheme-3-background: var(--color-affair-darkest);
+  --color-scheme-3-border: var(--opacity-white-20);
+  --color-scheme-3-accent: var(--color-white);
+  --color-scheme-3-foreground: var(--color-affair-darkest);
+  --color-error-red: #af0404;
 
   /* ==================================== */
   /* 🖋️ Шрифти */
   /* ==================================== */
-  --font-primary: "IBM Plex Sans", sans-serif;
-  --font-secondary: "Epilogue", sans-serif;
-  --font-tertiary: "Roboto", sans-serif;
+  --font-primary: "IBM Plex Sans",
+    sans-serif;
+  --font-secondary: "Epilogue",
+    sans-serif;
+  --font-tertiary: "Roboto",
+    sans-serif;
 }
 
+/* ==================================== */
+/* 🖋️ Шрифти */
+/* ==================================== */
+--font-primary: 'IBM Plex Sans', sans-serif;
+--font-secondary: 'Epilogue', sans-serif;
+--font-tertiary: 'Roboto', sans-serif;
+
 /* 🌞 Світла тема */
-[data-theme="light"] {
+[data-theme='light'] {
   --color-bg: var(--white);
   --color-fg: var(--neutral-700);
   --color-border: var(--black-10);
@@ -126,7 +82,7 @@
 }
 
 /* 🌙 Темна тема */
-[data-theme="dark"] {
+[data-theme='dark'] {
   --color-bg: var(--neutral-700);
   --color-fg: var(--white);
   --color-border: var(--white-20);

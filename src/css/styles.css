@@ -9,11 +9,17 @@
 @import url('./base.css');
 @import url('./container.css');
 
-
 /* Sections style */
 @import url('./header.css');
 @import url('./burger-menu.css');
 
+@import url('./artists.css');
 
 
+
+/* Sections style */
+
+
+
+@import url('./artist-modal.css');
 @import url('./footer.css');
