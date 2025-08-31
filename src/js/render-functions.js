@@ -21,7 +21,7 @@ function templateImage(artist) {
           <h3 class="name-artist">${strArtist}</h3>
           <p class="desc-artist">${strBiographyEN}</p>
         </div>
-        <button class="learn-more-artist" data-id-${_id}>
+       <button class="learn-more-artist" data-id="${_id}">
           Learn More
           <svg class="icon-learn-more" width="24" height="24">
             <use href=""></use>

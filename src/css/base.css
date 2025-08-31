@@ -54,18 +54,18 @@
   --color-scheme-3-accent: var(--color-white);
   --color-scheme-3-foreground: var(--color-affair-darkest);
   --color-error-red: #af0404;
+
+
+  /* ==================================== */
+  /* 🖋️ Шрифти */
+  /* ==================================== */
+  --font-primary: "IBM Plex Sans",
+    sans-serif;
+  --font-secondary: "Epilogue",
+    sans-serif;
+  --font-tertiary: "Roboto",
+    sans-serif;
 }
-
-/* ==================================== */
-/* 🖋️ Шрифти */
-/* ==================================== */
---font-primary: "IBM Plex Sans",
-sans-serif;
---font-secondary: "Epilogue",
-sans-serif;
---font-tertiary: "Roboto",
-sans-serif;
-
 
 /* 🌞 Світла тема */
 [data-theme="light"] {
