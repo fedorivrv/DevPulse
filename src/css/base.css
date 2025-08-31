@@ -67,8 +67,15 @@
     sans-serif;
 }
 
+/* ==================================== */
+/* 🖋️ Шрифти */
+/* ==================================== */
+--font-primary: 'IBM Plex Sans', sans-serif;
+--font-secondary: 'Epilogue', sans-serif;
+--font-tertiary: 'Roboto', sans-serif;
+
 /* 🌞 Світла тема */
-[data-theme="light"] {
+[data-theme='light'] {
   --color-bg: var(--white);
   --color-fg: var(--neutral-700);
   --color-border: var(--black-10);
@@ -76,7 +83,7 @@
 }
 
 /* 🌙 Темна тема */
-[data-theme="dark"] {
+[data-theme='dark'] {
   --color-bg: var(--neutral-700);
   --color-fg: var(--white);
   --color-border: var(--white-20);
