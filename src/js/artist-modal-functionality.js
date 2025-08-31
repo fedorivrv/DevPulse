@@ -11,30 +11,6 @@ const content = document.getElementById('artist-content');
 let escListener = null;
 let outsideClickListener = null;
 
-// --- Підвантаження списку артистів ---
-async function renderArtists() {
-  try {
-    const artists = await getArtists({ page: 1 }) || [];
-    if (!artists.length) {
-      noDataIzT('artists');
-      return;
-    }
-
-    listArtists.innerHTML = artists.map(artist => `
-      <li>
-        <button class="learn-more-artist" data-id="${artist._id}">
-          ${artist.strArtist}
-        </button>
-      </li>
-    `).join('');
-
-  } catch (err) {
-    console.error('Error fetching artists:', err);
-    noDataIzT('artists');
-  }
-}
-renderArtists();
-
 // --- Відкриття модалки по кліку на кнопку ---
 listArtists.addEventListener('click', e => {
   const btn = e.target.closest('.learn-more-artist');
@@ -77,11 +53,10 @@ export async function openArtistModal(artistId) {
 
     const albums = Object.entries(albumsMap).map(([albumName, tracks]) => ({
       strAlbum: albumName,
-      tracks
+      tracks,
     }));
 
     renderArtist(artist, albums);
-
   } catch (err) {
     console.error(err);
     content.innerHTML = `<p>Error loading artist.</p>`;
@@ -104,25 +79,35 @@ export function closeArtistModal() {
 // --- Слухачі ---
 function addEventListeners() {
   if (!escListener) {
-    escListener = (e) => { if (e.key === 'Escape') closeArtistModal(); };
+    escListener = e => {
+      if (e.key === 'Escape') closeArtistModal();
+    };
     document.addEventListener('keydown', escListener);
   }
 
   if (!outsideClickListener) {
-    outsideClickListener = (e) => { if (e.target === backdrop) closeArtistModal(); };
+    outsideClickListener = e => {
+      if (e.target === backdrop) closeArtistModal();
+    };
     backdrop.addEventListener('click', outsideClickListener);
   }
 }
 
 function removeEventListeners() {
-  if (escListener) { document.removeEventListener('keydown', escListener); escListener = null; }
-  if (outsideClickListener) { backdrop.removeEventListener('click', outsideClickListener); outsideClickListener = null; }
+  if (escListener) {
+    document.removeEventListener('keydown', escListener);
+    escListener = null;
+  }
+  if (outsideClickListener) {
+    backdrop.removeEventListener('click', outsideClickListener);
+    outsideClickListener = null;
+  }
 }
 
 // --- Рендер артиста та альбомів ---
 function renderArtist(artist, albums) {
   const yearsActive = artist.intFormedYear
-    ? artist.intDiedYear && artist.intDiedYear !== "null"
+    ? artist.intDiedYear && artist.intDiedYear !== 'null'
       ? `${artist.intFormedYear} - ${artist.intDiedYear}`
       : `${artist.intFormedYear} - present`
     : 'information missing';
@@ -137,22 +122,30 @@ function renderArtist(artist, albums) {
       ${artist.strCountry ? `<p><b>Country:</b> ${artist.strCountry}</p>` : ''}
       ${artist.strLabel ? `<p><b>Label:</b> ${artist.strLabel}</p>` : ''}
       ${artist.strBiographyEN ? `<p><b>Biography:</b> ${artist.strBiographyEN}</p>` : ''}
-      ${(artist.genres && artist.genres.length) ? `<p><b>Genres:</b> ${artist.genres.join(', ')}</p>` : ''}
+      ${artist.genres && artist.genres.length ? `<p><b>Genres:</b> ${artist.genres.join(', ')}</p>` : ''}
     </div>
 
     <div class="albums">
       <h3>Albums</h3>
-      ${albums.length ? albums.map(album => `
+      ${
+        albums.length
+          ? albums
+              .map(
+                album => `
         <div class="album">
           <div class="album-title">${album.strAlbum || '—'}</div>
-          ${album.tracks && album.tracks.length ? `
+          ${
+            album.tracks && album.tracks.length
+              ? `
             <div class="tracks">
               <div class="track track-header">
                 <span>Track</span>
                 <span>Time</span>
                 <span>Link</span>
               </div>
-              ${album.tracks.map(track => `
+              ${album.tracks
+                .map(
+                  track => `
                 <div class="track">
                   <span>${track.strTrack || '—'}</span>
                   <span>${msToMinSec(track.intDuration)}</span>
@@ -160,11 +153,19 @@ function renderArtist(artist, albums) {
                     ${track.movie ? `<a href="${track.movie}" target="_blank" class="yt-link">▶</a>` : '-'}
                   </span>
                 </div>
-              `).join('')}
+              `
+                )
+                .join('')}
             </div>
-          ` : '<p>No tracks available</p>'}
+          `
+              : '<p>No tracks available</p>'
+          }
         </div>
-      `).join('') : '<p>No albums available.</p>'}
+      `
+              )
+              .join('')
+          : '<p>No albums available.</p>'
+      }
     </div>
   `;
 }
