@@ -16,8 +16,9 @@
 
 
 
-@import url('./artists.css');
 
+@import url('./artists.css');
+@import url('./loader.css');
 
 
 /* Sections style */
