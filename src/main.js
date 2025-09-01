@@ -3,6 +3,7 @@ import { checkVisibleLoadBtn, createArtists, updateArtists } from './js/render-f
 import { getArtists } from './js/sound-wave-api';
 import { errorApiIzT } from './js/izitoast-functions';
 import { showLoader, hideLoader } from './js/loader';
+import { scroll } from './js/header';
 
 const btnLdMrEl = document.querySelector('.load-more');
 let page = 1;
@@ -39,7 +40,7 @@ btnLdMrEl.addEventListener('click', async () => {
 
 const listArtistsEl = document.querySelector('.list-artists');
 
-listArtistsEl.addEventListener('click', (e) => {
+listArtistsEl.addEventListener('click', e => {
   const btn = e.target.closest('.learn-more-artist');
   if (!btn) return;
 
@@ -47,4 +48,40 @@ listArtistsEl.addEventListener('click', (e) => {
   if (!artistId) return;
 
   openArtistModal(artistId);
+});
+
+const burgerBtnElem = document.querySelector('.burger-btn');
+const burgerMenuElem = document.querySelector('.burger-menu');
+const navListElem = document.querySelector('.nav-list');
+
+
+burgerBtnElem.addEventListener('click', () => {
+  burgerBtnElem.classList.toggle('is-open');
+  burgerMenuElem.classList.toggle('is-open');
+
+  document.body.classList.toggle('no-scroll');
+});
+let res = 0;
+burgerMenuElem.addEventListener('click', e => {
+  if (e.target.nodeName !== 'A') {
+    return;
+  }
+  e.preventDefault();
+  burgerBtnElem.classList.toggle('is-open');
+  burgerMenuElem.classList.toggle('is-open');
+
+  document.body.classList.toggle('no-scroll');
+  const id = e.target.getAttribute('href');
+  scroll(id);
+  res = 0;
+});
+
+navListElem.addEventListener('click', e => {
+  if (e.target.nodeName !== 'A') {
+    return;
+  }
+  e.preventDefault();
+  const id = e.target.getAttribute('href');
+  scroll(id);
+  res = 0;
 });
