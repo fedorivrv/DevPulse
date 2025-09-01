@@ -6,6 +6,8 @@ const headerElem = document.querySelector('.header-container');
 burgerBtnElem.addEventListener('click', () => {
   burgerBtnElem.classList.toggle('is-open');
   burgerMenuElem.classList.toggle('is-open');
+  
+  document.body.classList.toggle('no-scroll'); 
 });
 let res = 0;
 burgerMenuElem.addEventListener('click', e => {
@@ -15,6 +17,8 @@ burgerMenuElem.addEventListener('click', e => {
   e.preventDefault();
   burgerBtnElem.classList.toggle('is-open');
   burgerMenuElem.classList.toggle('is-open');
+  
+  document.body.classList.toggle('no-scroll'); 
   const id = e.target.getAttribute('href');
   scroll(id);
   res = 0;
