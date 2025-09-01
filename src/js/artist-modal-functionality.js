@@ -11,29 +11,6 @@ const content = document.getElementById('artist-content');
 let escListener = null;
 let outsideClickListener = null;
 
-// --- Підвантаження списку артистів ---
-async function renderArtists() {
-  try {
-    const artists = await getArtists({ page: 1 }) || [];
-    if (!artists.length) {
-      noDataIzT('artists');
-      return;
-    }
-
-    listArtists.innerHTML = artists.map(artist => `
-      <li>
-        <button class="learn-more-artist" data-id="${artist._id}">
-          ${artist.strArtist}
-        </button>
-      </li>
-    `).join('');
-
-  } catch (err) {
-    console.error('Error fetching artists:', err);
-    noDataIzT('artists');
-  }
-}
-renderArtists();
 
 // --- Відкриття модалки по кліку на кнопку ---
 listArtists.addEventListener('click', e => {
