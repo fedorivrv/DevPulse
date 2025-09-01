@@ -19,6 +19,7 @@
     rel="stylesheet">
   <!-- Підключення CSS-файлів -->
   <link rel="stylesheet" href="./css/styles.css" />
+  
 </head>
 
 <body>
@@ -26,19 +27,18 @@
   <load src="./partials/burger-menu.html" />
 
   <main>
-    <!-- Loads the specified .html file -->
-
-
-    <load src="./partials/artists.html" />
-
-    <load src="./partials/footer.html" />
-
-
+    <!-- Loads the specified .html file -->      
+       <load src="./partials/hero.html" />
+      <load src="./partials/artists.html" />
   </main>
 
   <load src="./partials/artist-modal.html" />
   <load src="./partials/footer.html" />
 
+  <!-- Глобальний лоадер -->
+  <div id="global-loader" class="hidden">
+    <div class="spinner"></div>
+  </div>
   <script type="module" src="./main.js"></script>
   <script type="module" src="./js/header.js"></script>
 </body>
