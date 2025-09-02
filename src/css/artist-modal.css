@@ -109,6 +109,27 @@
     padding-bottom: 8px;
 }
 
+/* Грід тільки для альбомів */
+.albums-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* мобільні: 1 колонка */
+    gap: 24px;
+}
+
+@media (min-width: 768px) {
+    .albums-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1440px) {
+    .albums-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
 .album {
     margin-bottom: 24px;
     padding: 16px;
