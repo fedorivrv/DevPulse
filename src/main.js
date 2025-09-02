@@ -9,7 +9,7 @@ import { getArtists } from './js/sound-wave-api';
 import { errorApiIzT } from './js/izitoast-functions';
 import { showLoader, hideLoader } from './js/loader';
 import { scroll } from './js/header';
-
+import './js/feedback';
 
 const btnLdMrEl = document.querySelector('.load-more');
 let page = 1;
@@ -65,7 +65,6 @@ listArtistsEl.addEventListener('click', e => {
 const burgerBtnElem = document.querySelector('.burger-btn');
 const burgerMenuElem = document.querySelector('.burger-menu');
 const navListElem = document.querySelector('.nav-list');
-
 
 burgerBtnElem.addEventListener('click', () => {
   burgerBtnElem.classList.toggle('is-open');
