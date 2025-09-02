@@ -1,0 +1,191 @@
+.footer {
+    box-sizing: border-box;
+
+}
+
+.footer-container {
+    margin-bottom: 48px;
+}
+
+.footer-link-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+/* .footer-logo {
+    color: #764191;
+} */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.footer-link-list {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 48px;
+    color: var(--color-scheme-1-text);
+    /* width: 288px;
+    height: 204px; */
+
+}
+
+/* hr {
+    
+    width: 288px;
+    height: 0px;
+} */
+.footer-divider {
+    border: 1px solid #383539;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.credits {
+    margin-bottom: 48px;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+
+.footer-social-list {
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    flex-direction: row;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.footer-rights {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5em;
+    color: var(--color-scheme-1-text);
+    /* margin: 0; */
+    text-align: center;
+    margin-bottom: 48px;
+
+}
+
+@media (min-width: 768px) {
+    .footer {
+        padding: 80px 32px;
+        width: 100%;
+        /* max-width: 768px; */
+    }
+
+    .container {
+        width: 100%;
+        margin: auto;
+    }
+
+    .footer-link-wrap {
+        min-width: 493px;
+        min-height: 101px;
+    }
+
+    /* футер навігація Artists, About us, Reviews */
+    .footer-link-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        min-width: 493px;
+        min-height: 24px;
+        gap: 32px;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    .credits .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        flex-wrap: nowrap;
+
+    }
+
+    .row {
+        /* display: flex;
+        justify-content: space-between;
+        align-items: center; */
+        flex-direction: row;
+
+    }
+
+    .footer-social-link {
+        display: flex;
+        gap: 24px;
+        /* order: 1; */
+        /* margin-left: 24px; */
+        margin: 0;
+        order: 1;
+
+    }
+
+    .footer-rights {
+        /* order: 0; */
+        width: auto;
+        height: auto;
+        text-align: left;
+        white-space: nowrap;
+        order: 0;
+
+    }
+
+}
+
+@media (min-width: 1440px) {
+    .footer {
+        padding-left: 64px;
+        padding-right: 64px;
+        padding-bottom: 80px;
+    }
+
+    .footer-link-wrap {
+        min-width: 640px;
+
+    }
+
+    /* футер навігація Artists, About us, Reviews */
+    .footer-link-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+
+        gap: 32px;
+
+    }
+
+    .credits .row {
+        display: flex;
+        /* justify-content: space-between; */
+        align-items: center;
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+}
