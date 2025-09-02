@@ -12,72 +12,228 @@
     align-items: center;
     z-index: 1000;
     overflow: auto;
-    /* дозволяє скролити модалку при великий висоті */
+    /* дозволяє скролити модалку при великій висоті */
 }
+
 
 #artist-modal-backdrop.hidden {
     display: none;
 }
 
+
 /* --- Модалка --- */
 #artist-modal {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 24px;
+    padding: 24px;
+    background: var(--color-scheme-1-background);
+    border-radius: 16px;
+    max-width: 960px;
+    margin: 40px auto;
+    position: relative;
     max-height: 90vh;
     /* обмежує висоту модалки */
     width: 90%;
-    max-width: 800px;
     overflow-y: auto;
     /* прокрутка всередині модалки */
-    padding: 24px;
-    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
+
 
 /* --- Кнопка закриття --- */
 #artist-close-btn {
     position: absolute;
     top: 16px;
     right: 16px;
+    width: 24px;
+    height: 24px;
     background: none;
     border: none;
     font-size: 20px;
     cursor: pointer;
+    fill: var(--color-white);
 }
 
-/* --- Вміст модалки --- */
-.artist-header img {
-    max-width: 100%;
-    border-radius: 8px;
+
+/* --- Заголовок артиста --- */
+.artist-header {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--color-scheme-1-text);
+}
+
+
+.artist-header h2 {
+    font-size: 24px;
+    font-weight: 600;
     margin-bottom: 16px;
 }
 
+
+.artist-header img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin: 16px auto;
+    display: block;
+}
+
+
+.artist-header p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 4px 0;
+}
+
+
+/* --- Альбоми --- */
 .albums {
+    grid-column: 1 / -1;
     margin-top: 24px;
 }
 
-.album {
+
+.albums h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-white);
     margin-bottom: 16px;
 }
 
-.tracks {
-    margin-top: 8px;
+
+/* Карточка альбома */
+.album-card {
+    width: 272px;
+    min-width: 250px;
+    padding: 14px 11px;
+    border-radius: 16px;
+    background: var(--color-scheme-2-foreground);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--color-scheme-1-text);
 }
 
+.album-card h4 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--color-scheme-1-text);
+}
+
+/* Список треков в карточке */
+.tracks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* расстояние между рядами */
+    /* если нужно фиксированное окно со скроллом — раскомментируй:
+  max-height: 200px;
+  overflow-y: auto;
+  */
+}
+
+/* Общая строка трека/заголовка */
 .track {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 8px;
-    padding: 4px 0;
+    grid-template-columns: 1fr auto auto;
+    /* title | time | link */
+    align-items: center;
+    gap: 16px;
+    height: 32px;
+    padding: 4px 12px;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--color-scheme-1-text);
+    font-size: 16px;
+    line-height: 24px;
 }
 
-.track-header {
-    font-weight: bold;
-    border-bottom: 1px solid #ccc;
+/* Шапка таблицы (Track | Time | Link) */
+.track.track-header {
+    height: 32px;
+    padding: 4px 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    user-select: none;
 }
 
-.yt-link {
-    color: #ff0000;
-    font-weight: bold;
+/* Чередование фона только для обычных строк (не для шапки) */
+.tracks .track:not(.track-header):nth-child(odd) {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Название трека — обрезка по макету */
+.track-title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Время — табличные цифры, прижим вправо */
+.track-time {
+    justify-self: end;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.9;
+}
+
+/* Кнопка линка (иконка YouTube/плея) */
+.track a.yt-link,
+.track .yt-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--color-scheme-1-text);
     text-decoration: none;
+    cursor: pointer;
+    justify-self: end;
+    padding: 0;
+    border: 0;
+}
+
+/* Иконка внутри */
+.track a.yt-link svg,
+.track .yt-link svg {
+    width: 21px;
+    height: 15px;
+    display: block;
+    fill: currentColor;
+}
+
+/* Hover-эффекты */
+.track:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.track a.yt-link:hover,
+.track .yt-link:hover {
+    opacity: 0.9;
+}
+
+
+/* --- Скролл для треків --- */
+.tracks::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.tracks::-webkit-scrollbar-thumb {
+    background-color: var(--opacity-white-20);
+    border-radius: 3px;
+}
+
+
+.tracks::-webkit-scrollbar-track {
+    background: transparent;
 }
