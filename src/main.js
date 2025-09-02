@@ -10,6 +10,7 @@ import { errorApiIzT } from './js/izitoast-functions';
 import { showLoader, hideLoader } from './js/loader';
 import { scroll } from './js/header';
 import './js/feedback';
+import { openFedbackModal } from './js/feedback-modal';
 
 const btnLdMrEl = document.querySelector('.load-more');
 let page = 1;
@@ -96,3 +97,6 @@ navListElem.addEventListener('click', e => {
   scroll(id);
   res = 0;
 });
+
+
+openFedbackModal();
