@@ -1,11 +1,11 @@
 import { getArtists, getArtist } from './sound-wave-api.js';
 import { noDataIzT, errorApiIzT } from './izitoast-functions.js';
+import { showLoader, hideLoader } from './loader.js';
 
 const listArtists = document.querySelector('.list-artists');
 const backdrop = document.getElementById('artist-modal-backdrop');
 const modal = document.getElementById('artist-modal');
 const closeBtn = document.getElementById('artist-close-btn');
-const loader = document.getElementById('artist-loader');
 const content = document.getElementById('artist-content');
 
 let escListener = null;
@@ -23,12 +23,13 @@ listArtists.addEventListener('click', e => {
 });
 
 // --- Відкрити модалку артиста ---
+// --- Відкрити модалку артиста ---
 export async function openArtistModal(artistId) {
   if (!artistId) return console.error('Artist ID is missing!');
   if (!backdrop.classList.contains('hidden')) return;
 
   backdrop.classList.remove('hidden');
-  loader.classList.remove('hidden');
+  showLoader();
   content.classList.add('hidden');
   document.body.style.overflow = 'hidden';
 
@@ -40,10 +41,9 @@ export async function openArtistModal(artistId) {
       return;
     }
 
-    // Використовуємо tracksList з артиста
     const tracks = artist.tracksList || [];
 
-    // Групуємо треки за альбомами
+    // --- Групуємо треки за альбомами ---
     const albumsMap = {};
     tracks.forEach(track => {
       const albumName = track.strAlbum || 'Unknown Album';
@@ -62,12 +62,35 @@ export async function openArtistModal(artistId) {
     content.innerHTML = `<p>Error loading artist.</p>`;
     errorApiIzT(err);
   } finally {
-    loader.classList.add('hidden');
+    hideLoader();
     content.classList.remove('hidden');
+
+    // --- Скидаємо скрол ---
+    resetModalScroll();
   }
 
   addEventListeners();
 }
+
+// --- Хелпер для скидання скролу ---
+function resetModalScroll() {
+  if (content) content.scrollTop = 0;
+  if (modal) modal.scrollTop = 0;
+  if (backdrop) backdrop.scrollTop = 0;
+
+  // гарантія після відмалювання DOM
+  requestAnimationFrame(() => {
+    if (content) {
+      const prev = content.style.scrollBehavior;
+      content.style.scrollBehavior = 'auto';
+      content.scrollTo(0, 0);
+      content.style.scrollBehavior = prev;
+    }
+    if (modal) modal.scrollTo(0, 0);
+    if (backdrop) backdrop.scrollTo(0, 0);
+  });
+}
+
 
 // --- Закрити модалку ---
 export function closeArtistModal() {
