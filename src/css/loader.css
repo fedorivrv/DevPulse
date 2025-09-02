@@ -1,0 +1,37 @@
+/* Контейнер лоадера */
+.global-loader {
+    margin: 0 auto;
+    width: 56px;
+    height: 56px;
+    background: rgba(0, 0, 0, 0.4); /* напівпрозорий фон */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* не блокує кліки */
+    z-index: 9999; /* поверх всього */
+    transition: opacity 0.3s ease;
+}
+
+/* Сховане відображення */
+.global-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Спіннер */
+.global-loader .spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(255, 255, 255, 0.2); /* світлий контур */
+    border-top-color: #fff; /* активний сегмент */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* легке світіння */
+}
+
+/* Анімація обертання */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

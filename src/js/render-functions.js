@@ -50,9 +50,15 @@ export function updateArtists(artists) {
 export function checkVisibleLoadBtn(page) {
   if (page === MAX_PAGE_ARTIST) {
     hideLoadMoreButton();
+  } else {
+    showLoadMoreButton();
   }
 }
 
-function hideLoadMoreButton() {
+export function hideLoadMoreButton() {
   btnLdMrEl.classList.add('is-display-none');
+}
+
+function showLoadMoreButton() {
+  btnLdMrEl.classList.remove('is-display-none');
 }
