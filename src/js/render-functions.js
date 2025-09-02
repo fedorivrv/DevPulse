@@ -23,7 +23,7 @@ function templateImage(artist) {
         </div>
        <button class="learn-more-artist" data-id="${_id}">
           Learn More
-          <img class="icon-learn-more" src="img/icon-right-arrow.png" width="8" height="14" alt="icon right arrow"></img>
+          <img class="icon-learn-more" src="./img/icon-right-arrow.png" width="8" height="14" alt="icon right arrow"></img>
         </button>
       </li>
 `;
