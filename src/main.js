@@ -7,10 +7,14 @@ import {
 } from './js/render-functions';
 import { getArtists } from './js/sound-wave-api';
 import { errorApiIzT } from './js/izitoast-functions';
+import { showLoader, hideLoader } from './js/loader';
+import { scroll } from './js/header';
+
 const btnLdMrEl = document.querySelector('.load-more');
 let page = 1;
 
 document.addEventListener('DOMContentLoaded', async () => {
+  showLoader(); // Включаємо лоадер перед запитом
   try {
     // функція включення лоудера
     hideLoadMoreButton();
@@ -23,11 +27,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   } finally {
     //функція виключення лоудера
     checkVisibleLoadBtn(page);
+    hideLoader(); // Вимикаємо лоадер після завершення
   }
 });
 
-btnLdMrEl.addEventListener('click', async e => {
+btnLdMrEl.addEventListener('click', async () => {
   page += 1;
+  showLoader(); // Включаємо лоадер при натисканні
   try {
     // функція включення лоудера
     hideLoadMoreButton();
@@ -38,10 +44,11 @@ btnLdMrEl.addEventListener('click', async e => {
   } catch (error) {
     errorApiIzT(error);
   } finally {
-    //функція виключення лоудера
-    checkVisibleLoadBtn(page);
+    hideLoader(); // Вимикаємо лоадер
+    checkVisibleLoadBtn(page); // Оновлюємо видимість кнопки
   }
 });
+
 const listArtistsEl = document.querySelector('.list-artists');
 
 listArtistsEl.addEventListener('click', e => {
@@ -52,4 +59,40 @@ listArtistsEl.addEventListener('click', e => {
   if (!artistId) return;
 
   openArtistModal(artistId);
+});
+
+const burgerBtnElem = document.querySelector('.burger-btn');
+const burgerMenuElem = document.querySelector('.burger-menu');
+const navListElem = document.querySelector('.nav-list');
+
+
+burgerBtnElem.addEventListener('click', () => {
+  burgerBtnElem.classList.toggle('is-open');
+  burgerMenuElem.classList.toggle('is-open');
+
+  document.body.classList.toggle('no-scroll');
+});
+let res = 0;
+burgerMenuElem.addEventListener('click', e => {
+  if (e.target.nodeName !== 'A') {
+    return;
+  }
+  e.preventDefault();
+  burgerBtnElem.classList.toggle('is-open');
+  burgerMenuElem.classList.toggle('is-open');
+
+  document.body.classList.toggle('no-scroll');
+  const id = e.target.getAttribute('href');
+  scroll(id);
+  res = 0;
+});
+
+navListElem.addEventListener('click', e => {
+  if (e.target.nodeName !== 'A') {
+    return;
+  }
+  e.preventDefault();
+  const id = e.target.getAttribute('href');
+  scroll(id);
+  res = 0;
 });

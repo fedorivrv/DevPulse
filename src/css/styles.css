@@ -12,13 +12,17 @@
 /* Sections style */
 @import url('./header.css');
 @import url('./burger-menu.css');
+@import url('./hero.css');
+
+
+
 
 @import url('./artists.css');
-
+@import url('./loader.css');
 
 
 /* Sections style */
-
+@import url('./about.css');
 
 
 @import url('./artist-modal.css');
