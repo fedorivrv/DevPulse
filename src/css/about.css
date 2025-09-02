@@ -1,0 +1,104 @@
+.about-section {
+    padding: 64px 0;
+    background-color: #060307;
+    color: #ffffff;
+}
+
+.about-section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.about-section-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+}
+
+.about-section-icon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    fill: currentColor;
+}
+
+.about-section-title {
+    font-size: 44px;
+    font-weight: 700;
+    font-family: "Epilogue", sans-serif;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.about-section-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-section-description {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 0em;
+}
+
+/* Tablet styles */
+@media screen and (min-width: 768px) {
+    .about-section {
+        padding: 64px 32px;
+    }
+
+    .about-section-content {
+        gap: 24px;
+    }
+
+    .about-section-text {
+        gap: 24px;
+    }
+
+    .about-section-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* .about-section-image {
+        min-width: 704px;
+    } */
+
+    .about-section-title {
+        font-size: 28px;
+    }
+
+    .about-section-description {
+        font-size: 20px;
+    }
+}
+
+/* Desktop styles */
+@media screen and (min-width: 1440px) {
+    .about-section {
+        padding: 112px 0;
+    }
+
+    .about-section-content {
+        flex-direction: row;
+        gap: 32px;
+        align-items: center;
+    }
+
+    .about-section-image {
+        min-width: 640px;
+    }
+
+    .about-section-title {
+        font-size: 60px;
+    }
+
+    .about-section-description {
+        font-size: 20px;
+    }
+}
