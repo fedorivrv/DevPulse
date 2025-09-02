@@ -5,14 +5,13 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* затемнення фону */
+    background-color: rgba(6, 3, 7, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    overflow: auto;
-    /* дозволяє скролити модалку при великий висоті */
+    overflow-y: auto;
+    padding: 16px;
 }
 
 #artist-modal-backdrop.hidden {
@@ -21,63 +20,177 @@
 
 /* --- Модалка --- */
 #artist-modal {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background-color: var(--color-scheme-1-background);
+    color: var(--color-scheme-1-text);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 288px;
+    /* за замовчуванням на мобільних */
     max-height: 90vh;
-    /* обмежує висоту модалки */
-    width: 90%;
-    max-width: 800px;
     overflow-y: auto;
-    /* прокрутка всередині модалки */
-    padding: 24px;
+    padding: 32px;
     position: relative;
+    font-family: var(--font-primary);
+}
+
+/* від 768px і вище */
+@media (min-width: 768px) {
+    #artist-modal {
+        max-width: 702px;
+    }
+}
+
+/* від 1440px і вище */
+@media (min-width: 1440px) {
+    #artist-modal {
+        max-width: 1312px;
+    }
 }
 
 /* --- Кнопка закриття --- */
 #artist-close-btn {
     position: absolute;
-    top: 16px;
-    right: 16px;
-    background: none;
-    border: none;
-    font-size: 20px;
+    top: 20px;
+    right: 20px;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    color: var(--color-white);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
-/* --- Вміст модалки --- */
-.artist-header img {
-    max-width: 100%;
-    border-radius: 8px;
+#artist-close-btn:hover {
+    opacity: 60%
+}
+
+/* --- Artist Header --- */
+.artist-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.artist-header h2 {
     margin-bottom: 16px;
+    font-size: 28px;
+    font-weight: 600;
 }
 
+.artist-header img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 16px;
+
+}
+
+.artist-header p {
+    margin: 4px 0;
+    font-size: 16px;
+}
+
+/* --- Albums Section --- */
 .albums {
-    margin-top: 24px;
+    margin-top: 32px;
+}
+
+.albums h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--opacity-white-20);
+    padding-bottom: 8px;
 }
 
 .album {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
+    padding: 16px;
+
+    border-radius: 12px;
 }
 
+.album-title {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 12px;
+    position: relative;
+    padding-bottom: 6px;
+}
+
+.album-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+
+    border-radius: 2px;
+}
+
+/* --- Tracks --- */
 .tracks {
     margin-top: 8px;
 }
 
-.track {
+.track,
+.track-header {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 8px;
-    padding: 4px 0;
+    grid-template-columns: 3fr 1fr 1fr;
+    gap: 12px;
+    padding: 6px 0;
+    align-items: center;
 }
 
 .track-header {
-    font-weight: bold;
-    border-bottom: 1px solid #ccc;
+    font-weight: 600;
+    border-bottom: 1px solid var(--opacity-white-20);
+
 }
 
+.track span {
+    font-size: 14px;
+}
+
+/* --- Чередування рядків + hover --- */
+.track:nth-child(even) {
+    background-color: var(--opacity-white-5);
+    border-radius: 8px;
+}
+
+.track:hover {
+    background-color: var(--opacity-white-10);
+    cursor: pointer;
+}
+
+/* --- YouTube link --- */
 .yt-link {
-    color: #ff0000;
-    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--opacity-white-10);
+    /* напівпрозорий фон */
+    color: var(--color-white);
+    /* ніжний акцентний колір */
+    font-size: 14px;
     text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+/* Hover: підсвітка */
+.yt-link:hover {
+    background: var(--color-affair-light);
+    color: var(--color-white);
+    box-shadow: 0 0 8px var(--color-affair-light);
+    transform: scale(1.1);
 }
