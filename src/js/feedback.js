@@ -11,7 +11,9 @@ export async function initFeedbacks() {
     if (!Array.isArray(reviews) || reviews.length === 0) {
       console.warn('No feedbacks available.');
       const container = document.getElementById('reviews-container');
-      if (container) container.innerHTML = '<p class="feedback-no-data">No feedbacks available.</p>';
+      if (container)
+        container.innerHTML =
+          '<p class="feedback-no-data">No feedbacks available.</p>';
       return;
     }
 
@@ -71,7 +73,10 @@ function renderReviews(reviews) {
         else if (swiper.realIndex === slides - 1) activeDot = 3;
 
         return [1, 2, 3]
-          .map(i => `<span class="swiper-pagination-bullet${i === activeDot ? ' swiper-pagination-bullet-active' : ''}" data-index="${i}"></span>`)
+          .map(
+            i =>
+              `<span class="swiper-pagination-bullet${i === activeDot ? ' swiper-pagination-bullet-active' : ''}" data-index="${i}"></span>`
+          )
           .join('');
       },
     },
@@ -84,7 +89,8 @@ function renderReviews(reviews) {
     if (!e.target.classList.contains('swiper-pagination-bullet')) return;
     const index = Number(e.target.dataset.index);
     const slides = swiper.slides.length - (swiper.loop ? 2 : 0);
-    let slideTo = index === 1 ? 0 : index === 3 ? slides - 1 : Math.floor((slides - 1) / 2);
+    let slideTo =
+      index === 1 ? 0 : index === 3 ? slides - 1 : Math.floor((slides - 1) / 2);
     swiper.slideToLoop(slideTo);
   });
 }
@@ -98,10 +104,10 @@ function generateStars(rating) {
     html += `
       <div class="star">
         <svg class="star-empty">
-          <use xlink:href="../img/star-empty.svg"></use>
+          <use xlink:href="../img/icon.svg#star-empty"></use>
         </svg>
         <svg class="star-filled" ${i <= fullStars ? '' : 'style="display:none"'} >
-          <use xlink:href="../img/star-filled.svg"></use>
+          <use xlink:href="../img/icon.svg#star-filled"></use>
         </svg>
       </div>
     `;
