@@ -16,9 +16,12 @@
 }
 
 
+
 #artist-modal-backdrop.hidden {
     display: none;
 }
+
+
 
 
 /* --- Модалка --- */
@@ -41,6 +44,8 @@
 }
 
 
+
+
 /* --- Кнопка закриття --- */
 #artist-close-btn {
     position: absolute;
@@ -56,6 +61,8 @@
 }
 
 
+
+
 /* --- Заголовок артиста --- */
 .artist-header {
     grid-column: 1 / -1;
@@ -64,11 +71,15 @@
 }
 
 
+
+
 .artist-header h2 {
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 16px;
 }
+
+
 
 
 .artist-header img {
@@ -81,6 +92,8 @@
 }
 
 
+
+
 .artist-header p {
     font-size: 16px;
     line-height: 1.5;
@@ -88,11 +101,15 @@
 }
 
 
+
+
 /* --- Альбоми --- */
 .albums {
     grid-column: 1 / -1;
     margin-top: 24px;
 }
+
+
 
 
 .albums h3 {
@@ -103,7 +120,9 @@
 }
 
 
-/* Карточка альбома */
+
+
+/* Картка альбома */
 .album-card {
     width: 272px;
     min-width: 250px;
@@ -116,6 +135,7 @@
     color: var(--color-scheme-1-text);
 }
 
+
 .album-card h4 {
     margin: 0;
     font-weight: 600;
@@ -124,26 +144,23 @@
     color: var(--color-scheme-1-text);
 }
 
+
 /* Список треков в карточке */
 .tracks {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    /* расстояние между рядами */
-    /* если нужно фиксированное окно со скроллом — раскомментируй:
-  max-height: 200px;
-  overflow-y: auto;
-  */
+
 }
 
-/* Общая строка трека/заголовка */
+
 .track {
     display: grid;
     grid-template-columns: 1fr auto auto;
     /* title | time | link */
     align-items: center;
     gap: 16px;
-    height: 32px;
+    min-height: 32px;
     padding: 4px 12px;
     border-radius: 8px;
     background: transparent;
@@ -151,6 +168,7 @@
     font-size: 16px;
     line-height: 24px;
 }
+
 
 /* Шапка таблицы (Track | Time | Link) */
 .track.track-header {
@@ -164,12 +182,13 @@
     user-select: none;
 }
 
-/* Чередование фона только для обычных строк (не для шапки) */
+
 .tracks .track:not(.track-header):nth-child(odd) {
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--color-scheme-2-foreground);
+    ;
 }
 
-/* Название трека — обрезка по макету */
+
 .track-title {
     min-width: 0;
     overflow: hidden;
@@ -177,15 +196,13 @@
     white-space: nowrap;
 }
 
-/* Время — табличные цифры, прижим вправо */
+
 .track-time {
     justify-self: end;
     font-variant-numeric: tabular-nums;
     opacity: 0.9;
 }
 
-/* Кнопка линка (иконка YouTube/плея) */
-.track a.yt-link,
 .track .yt-link {
     display: inline-flex;
     align-items: center;
@@ -202,6 +219,7 @@
     border: 0;
 }
 
+
 /* Иконка внутри */
 .track a.yt-link svg,
 .track .yt-link svg {
@@ -211,15 +229,19 @@
     fill: currentColor;
 }
 
+
 /* Hover-эффекты */
 .track:hover {
     background: rgba(255, 255, 255, 0.08);
 }
 
+
 .track a.yt-link:hover,
 .track .yt-link:hover {
     opacity: 0.9;
 }
+
+
 
 
 /* --- Скролл для треків --- */
@@ -228,10 +250,14 @@
 }
 
 
+
+
 .tracks::-webkit-scrollbar-thumb {
     background-color: var(--opacity-white-20);
     border-radius: 3px;
 }
+
+
 
 
 .tracks::-webkit-scrollbar-track {
