@@ -23,7 +23,6 @@ listArtists.addEventListener('click', e => {
 });
 
 // --- Відкрити модалку артиста ---
-// --- Відкрити модалку артиста ---
 export async function openArtistModal(artistId) {
   if (!artistId) return console.error('Artist ID is missing!');
   if (!backdrop.classList.contains('hidden')) return;
@@ -156,7 +155,7 @@ function renderArtist(artist, albums) {
               .map(
                 album => `
         <div class="album">
-          <div class="album-title">${album.strAlbum || '—'}</div>
+          <div class="album-title">${album.strAlbum || ' '}</div>
           ${
             album.tracks && album.tracks.length
               ? `

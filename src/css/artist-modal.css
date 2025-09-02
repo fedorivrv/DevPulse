@@ -1,52 +1,73 @@
-/* --- Backdrop --- */
+/* ============================================
+   Базові змінні теми
+   ============================================ */
+:root {
+    --color-scheme-1-background: #0b0b0d;
+    --color-scheme-1-text: #fff;
+    --color-scheme-2-foreground: rgba(255, 255, 255, .06);
+    --color-white: #fff;
+    --opacity-white-20: rgba(255, 255, 255, .2);
+
+    /* Константи для таблиці треків */
+    --tracks-gap: 12px;
+    --track-row-min-h: 32px;
+    --col-time: 64px;
+    /* достатньо під 10:00 */
+    --col-link: 40px;
+    /* під іконку 24px + поля */
+    --track-title-size: 16px;
+    --track-time-size: 14px;
+}
+
+/* ============================================
+   Підкладка модалки (Backdrop)
+   ============================================ */
 #artist-modal-backdrop {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* затемнення фону */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
     overflow: auto;
-    /* дозволяє скролити модалку при великій висоті */
+    /* скролиться ВСЯ модалка, не картки */
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 99999;
 }
-
-
 
 #artist-modal-backdrop.hidden {
     display: none;
 }
 
-
-
-
-/* --- Модалка --- */
+/* ============================================
+   Модальне вікно
+   ============================================ */
 #artist-modal {
+    position: relative;
+    z-index: 100000;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     gap: 24px;
-    padding: 24px;
-    background: var(--color-scheme-1-background);
-    border-radius: 16px;
+    width: 90%;
     max-width: 960px;
     margin: 40px auto;
-    position: relative;
+    padding: 24px;
+    background: var(--color-scheme-1-background);
+    color: var(--color-scheme-1-text);
+    border-radius: 16px;
     max-height: 90vh;
-    /* обмежує висоту модалки */
-    width: 90%;
     overflow-y: auto;
-    /* прокрутка всередині модалки */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    /* скролиться контейнер модалки */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .3);
 }
 
+#artist-modal,
+#artist-modal * {
+    box-sizing: border-box;
+}
 
-
-
-/* --- Кнопка закриття --- */
+/* Кнопка закриття */
 #artist-close-btn {
     position: absolute;
     top: 16px;
@@ -54,78 +75,180 @@
     width: 24px;
     height: 24px;
     background: none;
-    border: none;
-    font-size: 20px;
+    border: 0;
     cursor: pointer;
+    color: var(--color-white);
     fill: var(--color-white);
 }
 
-
-
-
-/* --- Заголовок артиста --- */
+/* ============================================
+   Хедер артиста (назва + фото)
+   ============================================ */
 .artist-header {
     grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 272px;
+    margin: 0 auto 12px;
     text-align: center;
-    color: var(--color-scheme-1-text);
 }
-
-
-
 
 .artist-header h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 16px;
+    margin: 0;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
 }
-
-
-
 
 .artist-header img {
     width: 100%;
-    max-width: 400px;
-    border-radius: 8px;
+    border-radius: 10px;
     object-fit: cover;
-    margin: 16px auto;
     display: block;
 }
 
-
-
-
-.artist-header p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 4px 0;
+/* ============================================
+   Інфо-картка (K/V, біографія, жанри)
+   ============================================ */
+.artist-info {
+    grid-column: 1 / -1;
+    margin-top: 16px;
+    color: var(--color-scheme-1-text);
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
+.info-card {
+    background: rgba(255, 255, 255, .06);
+    border-radius: 16px;
+    padding: 14px 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    text-align: left;
+    /* усе по лівому краю */
+}
 
+.info-card__cover {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+}
 
+/* K/V пари */
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+}
 
-/* --- Альбоми --- */
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.info-item dt {
+    margin: 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.info-item dd {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Біографія */
+.info-subtitle {
+    margin: 0 0 4px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.info-bio {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
+/* Жанри (чіпси) */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.chip {
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 999px;
+    font-size: 13px;
+    line-height: 18px;
+    white-space: nowrap;
+}
+
+/* ============================================
+   Секція «Albums»
+   ============================================ */
 .albums {
     grid-column: 1 / -1;
     margin-top: 24px;
 }
 
-
-
-
-.albums h3 {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--color-white);
-    margin-bottom: 16px;
+.albums h3,
+.albums-title {
+    font-family: var(--second-family, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.3;
+    letter-spacing: -.01em;
+    color: var(--color-scheme-1-text);
+    margin: 0 0 16px;
 }
 
+/* Контейнер карток (мобільно — стовпчик) */
+.albums__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
+/* (ОПЦІЯ) Сіра підкладка навколо ВСІХ карток.
+   Додай клас .albums--boxed на .albums, якщо потрібен такий вигляд */
+.albums.albums--boxed .albums__list {
+    background: var(--color-scheme-2-foreground);
+    border-radius: 16px;
+    padding: 14px 11px;
+    gap: 16px;
+}
 
-
-/* Картка альбома */
+/* Картка альбому */
 .album-card {
-    width: 272px;
-    min-width: 250px;
+    width: 100%;
     padding: 14px 11px;
     border-radius: 16px;
     background: var(--color-scheme-2-foreground);
@@ -133,76 +256,98 @@
     flex-direction: column;
     gap: 12px;
     color: var(--color-scheme-1-text);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .35);
 }
-
 
 .album-card h4 {
     margin: 0;
     font-weight: 600;
     font-size: 18px;
     line-height: 26px;
-    color: var(--color-scheme-1-text);
 }
 
-
-/* Список треков в карточке */
+/* ============================================
+   Треки в картці альбому (БЕЗ внутрішнього скролу)
+   ============================================ */
 .tracks {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-
+    gap: var(--tracks-gap);
+    max-height: none;
+    /* <<< внутрішній скрол ВИМКНЕНО */
+    overflow: visible;
+    /* <<< внутрішній скрол ВИМКНЕНО */
 }
 
-
-.track {
+/* Єдина сітка для шапки і рядків */
+.track,
+.track.track-header {
     display: grid;
-    grid-template-columns: 1fr auto auto;
-    /* title | time | link */
+    width: 100%;
+    grid-template-columns: 1fr var(--col-time) var(--col-link);
     align-items: center;
     gap: 16px;
-    min-height: 32px;
+    min-height: var(--track-row-min-h);
     padding: 4px 12px;
     border-radius: 8px;
-    background: transparent;
-    color: var(--color-scheme-1-text);
-    font-size: 16px;
-    line-height: 24px;
 }
 
-
-/* Шапка таблицы (Track | Time | Link) */
+/* Шапка таблиці над кожною карткою (НЕ липка) */
 .track.track-header {
-    height: 32px;
-    padding: 4px 12px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, .06);
     font-weight: 600;
     font-size: 14px;
     line-height: 20px;
     user-select: none;
+    position: static;
+    box-shadow: none;
 }
 
+/* Вирівнювання колонок у шапці */
+.track.track-header .track-title {
+    justify-self: start;
+}
 
+.track.track-header .track-time {
+    justify-self: center;
+    text-align: center;
+}
+
+.track.track-header .track-link {
+    justify-self: end;
+}
+
+/* «Зебра» тільки для рядків, без шапки */
 .tracks .track:not(.track-header):nth-child(odd) {
-    background: var(--color-scheme-2-foreground);
-    ;
+    background: rgba(255, 255, 255, .10);
 }
 
-
+/* Колонка: назва треку */
 .track-title {
     min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: var(--track-title-size);
+    line-height: 24px;
+    font-weight: 400;
 }
 
-
+/* Колонка: час (центруємо під заголовком Time) */
 .track-time {
-    justify-self: end;
+    justify-self: center;
+    text-align: center;
+    font-size: var(--track-time-size);
+    line-height: 20px;
     font-variant-numeric: tabular-nums;
-    opacity: 0.9;
+    opacity: .95;
 }
 
+/* Якщо хочеш праве вирівнювання — заміни на:
+   .track-time{ justify-self:end; text-align:right; } і те ж саме для .track.track-header .track-time */
+
+/* Колонка: лінк/іконка праворуч */
 .track .yt-link {
     display: inline-flex;
     align-items: center;
@@ -210,7 +355,7 @@
     width: 24px;
     height: 24px;
     border-radius: 6px;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, .12);
     color: var(--color-scheme-1-text);
     text-decoration: none;
     cursor: pointer;
@@ -219,8 +364,6 @@
     border: 0;
 }
 
-
-/* Иконка внутри */
 .track a.yt-link svg,
 .track .yt-link svg {
     width: 21px;
@@ -229,37 +372,50 @@
     fill: currentColor;
 }
 
-
-/* Hover-эффекты */
-.track:hover {
-    background: rgba(255, 255, 255, 0.08);
+/* Плейсхолдер, коли немає посилання — зберігає ширину колонки */
+.link-spacer {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    justify-self: end;
 }
 
+.yt-link[aria-disabled="true"] {
+    display: none;
+    pointer-events: none;
+}
+
+/* Ховери */
+.track:hover {
+    background: rgba(255, 255, 255, .08);
+}
 
 .track a.yt-link:hover,
 .track .yt-link:hover {
-    opacity: 0.9;
+    opacity: .9;
 }
 
+/* ============================================
+   Адаптив: ≥768px — 2 колонки карток
+   ============================================ */
+@media (min-width:768px) {
+    .albums__list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
 
-
-
-/* --- Скролл для треків --- */
-.tracks::-webkit-scrollbar {
-    width: 6px;
+    .album-card {
+        flex: 1 1 calc(50% - 24px);
+        max-width: calc(50% - 24px);
+    }
 }
 
-
-
-
-.tracks::-webkit-scrollbar-thumb {
-    background-color: var(--opacity-white-20);
-    border-radius: 3px;
-}
-
-
-
-
-.tracks::-webkit-scrollbar-track {
-    background: transparent;
+/* Доступність: відключення анімацій */
+@media (prefers-reduced-motion:reduce) {
+    * {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
 }
