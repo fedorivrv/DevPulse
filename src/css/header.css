@@ -1,0 +1,138 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  position: fixed;
+  top: 0;
+  left: calc((100% / 2) - (320px / 2));
+  background-color: var(--color-scheme-1-background);
+}
+
+@media screen and (max-width:767px) {
+  .nav {
+    display: none;
+  }
+}
+
+.logo {
+  fill: var(--color-scheme-2-accent);
+}
+
+
+.burger-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.burger-icon {
+  position: relative;
+  display: block;
+  width: 12px;
+  height: 2px;
+  background-color: var(--color-scheme-1-text);
+  transition: background-color 250ms, transform 250ms;
+}
+
+.burger-icon::before,
+.burger-icon::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background-color: var(--color-scheme-1-text);
+  transition: transform 250ms, top 250ms, width 250ms;
+}
+
+.burger-icon::before {
+  top: -5px;
+  width: 16px;
+  left: -4px;
+}
+
+.burger-icon::after {
+  top: 5px;
+  left: 4px;
+  width: 8px;
+}
+
+.burger-btn.is-open {
+  padding-left: 4px;
+}
+
+.burger-btn.is-open .burger-icon {
+  background-color: transparent;
+}
+
+.burger-btn.is-open .burger-icon::before {
+  top: 0;
+  transform: rotate(-45deg);
+  left: 0;
+  width: 12px;
+  height: 2px;
+}
+
+.burger-btn.is-open .burger-icon::after {
+  top: 0;
+  transform: rotate(45deg);
+  width: 12px;
+  height: 2px;
+  left: 0;
+}
+
+
+
+@media screen and (min-width:768px) {
+  .header .container {
+      max-width: 768px;
+        padding-left: 64px;
+        padding-right: 64px;
+    height: 72px;
+    left: calc((100% / 2) - (768px / 2));
+  }
+
+  .burger-btn {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 32px;
+  }
+
+  .nav-link {
+    display: block;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--color-scheme-1-text);
+  }
+}
+
+@media screen and (min-width:1440px) {
+  .header .container {
+        max-width: 1440px;
+    left: calc((100% / 2) - (1440px / 2));
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+    color: var(--opacity-white-60);
+    transition: color 250ms, transform 250ms;
+  }
+
+  .logo:hover,
+  .logo:focus {
+    transform: scale(1.04);
+    transition: transform 250ms, transform 250ms;
+  }
+}
