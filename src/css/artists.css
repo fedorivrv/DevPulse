@@ -68,10 +68,10 @@
   width: 288px;
   height: 47px;
   box-shadow:
-    0 1px 2px 0 var(--opacity-white-5),
-    inset 0 -2px 1px 0 var(--opacity-neutral-darkest-20),
-    inset 0 0 0 1px var(--opacity-white-15),
-    inset 0 2px 1px 0 var(--opacity-white-25),
+    0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 32px 24px 0 var(--opacity-white-5);
   background-color: var(--color-affair);
   font-weight: 500;
@@ -174,13 +174,21 @@
 }
 
 .learn-more-artist {
-  text-align: justify;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: start;
   font-weight: 500;
   font-size: 18px;
   color: var(--color-white);
 }
 
-.icon-load-more {
+.icon-learn-more {
+  padding: 5px 0;
+}
+
+.icon-load-more,
+.icon-learn-more {
   fill: var(--color-white);
 }
 
