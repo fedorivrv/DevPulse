@@ -4,12 +4,12 @@ import {
   createArtists,
   hideLoadMoreButton,
   updateArtists,
-} from './js/render-functions';
-import { getArtists } from './js/sound-wave-api';
-import { errorApiIzT } from './js/izitoast-functions';
-import { showLoader, hideLoader } from './js/loader';
-import { scroll } from './js/header';
-import './js/feedback';
+} from './js/render-functions.js';
+import { getArtists } from './js/sound-wave-api.js';
+import { errorApiIzT } from './js/izitoast-functions.js';
+import { showLoader, hideLoader } from './js/loader.js';
+import { scroll } from './js/header.js';
+import { initFeedbacks } from './js/feedback.js'; // тепер викликаємо функцію, а не модуль одразу
 import { openFedbackModal } from './js/feedback-modal';
 
 const btnLdMrEl = document.querySelector('.load-more');
@@ -90,4 +90,7 @@ navListElem.addEventListener('click', e => {
 });
 
 
-openFedbackModal();
+const leaveFeedbackEl = document.querySelector('.leave-feedback');
+leaveFeedbackEl.addEventListener("click", () => {
+  openFedbackModal();
+})
