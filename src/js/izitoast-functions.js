@@ -16,17 +16,19 @@ export function noDataIzT(message) {
 }
 
 export function errorApiIzT(error) {
-  if (error.message) {
-    iziToast.show({
-      title: 'Error',
-      color: 'red',
-      position: 'topRight',
-      messageColor: 'white',
-      titleColor: 'white',
-      message: error.message,
-      timeout: 5000,
-    });
-  }
+  const message =
+    typeof error === 'string'
+      ? error
+      : error?.message || 'Unknown error occurred';
+  iziToast.show({
+    title: 'Error',
+    color: 'red',
+    position: 'topRight',
+    messageColor: 'white',
+    titleColor: 'white',
+    message,
+    timeout: 5000,
+  });
 }
 
 export function successDataIzT(response) {

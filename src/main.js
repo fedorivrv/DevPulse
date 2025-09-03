@@ -10,6 +10,7 @@ import { errorApiIzT } from './js/izitoast-functions.js';
 import { showLoader, hideLoader } from './js/loader.js';
 import { scroll } from './js/header.js';
 import { initFeedbacks } from './js/feedback.js'; // тепер викликаємо функцію, а не модуль одразу
+import { initFeedbackModal, openFeedbackModal } from './js/feedback-modal.js';
 
 const btnLdMrEl = document.querySelector('.load-more');
 const listArtistsEl = document.querySelector('.list-artists');
@@ -33,6 +34,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // === Ініціалізація відгуків після завантаження артистів ===
   initFeedbacks();
+  // === Ініціалізація модалки фідбеків ===
+  initFeedbackModal();
+  document
+    .getElementById('leave-feedback-button')
+    ?.addEventListener('click', openFeedbackModal);
 });
 
 // === Кнопка "Load More" ===
