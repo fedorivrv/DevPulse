@@ -99,7 +99,7 @@ function renderReviews(reviews) {
 function generateStars(rating) {
   const fullStars = Math.floor(rating);
   const totalStars = 5;
-  const spriteUrl = '/img/icon.svg'; // must be reachable in production
+  const spriteUrl = './img/icon.svg'; 
 
   let html = '';
   for (let i = 1; i <= totalStars; i++) {
