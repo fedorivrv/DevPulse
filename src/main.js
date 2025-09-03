@@ -89,8 +89,11 @@ navListElem.addEventListener('click', e => {
   scroll(e.target.getAttribute('href'));
 });
 
-
+const backdropFeedbackModal = document.querySelector(
+  '.backdrop-feedback-modal'
+);
 const leaveFeedbackEl = document.querySelector('.leave-feedback');
-leaveFeedbackEl.addEventListener("click", () => {
+leaveFeedbackEl.addEventListener('click', () => {
+  backdropFeedbackModal.classList.add('feedback-is-open');
   openFedbackModal();
-})
+});
