@@ -142,7 +142,10 @@ function renderArtist(artist, albums) {
       ${artist.strGender ? `<p><b>Sex:</b> ${artist.strGender}</p>` : ''}
       ${artist.intMembers ? `<p><b>Members:</b> ${artist.intMembers}</p>` : ''}
       ${artist.strCountry ? `<p><b>Country:</b> ${artist.strCountry}</p>` : ''}
-      ${artist.strLabel ? `<p><b>Label:</b> ${artist.strLabel}</p>` : ''}
+      ${artist.strLabel && artist.strLabel !== 'null' && artist.strLabel.trim()
+  ? `<p><b>Label:</b> ${artist.strLabel.trim()}</p>`
+  : ''}
+
       ${artist.strBiographyEN ? `<p><b>Biography:</b> ${artist.strBiographyEN}</p>` : ''}
       ${artist.genres && artist.genres.length ? `<p><b>Genres:</b> ${artist.genres.join(', ')}</p>` : ''}
     </div>
@@ -155,7 +158,7 @@ function renderArtist(artist, albums) {
               .map(
                 album => `
         <div class="album">
-          <div class="album-title">${album.strAlbum || ' '}</div>
+          <div class="album-title">${album.strAlbum || ''}</div>
           ${
             album.tracks && album.tracks.length
               ? `
@@ -166,18 +169,23 @@ function renderArtist(artist, albums) {
                 <span>Link</span>
               </div>
               ${album.tracks
-                .map(
-                  track => `
-                <div class="track">
-                  <span>${track.strTrack || '—'}</span>
-                  <span>${msToMinSec(track.intDuration)}</span>
-                  <span>
-                    ${track.movie ? `<a href="${track.movie}" target="_blank" class="yt-link">▶</a>` : '-'}
-                  </span>
-                </div>
-              `
-                )
-                .join('')}
+  .map(track => {
+    const hasLink = track.movie && /^https?:\/\//i.test(track.movie);
+    return `
+      <div class="track">
+        <span class="track-title">${track.strTrack || '—'}</span>
+        <span class="track-time">${msToMinSec(track.intDuration)}</span>
+        ${
+          hasLink
+            ? `<a href="${track.movie}" target="_blank" rel="noopener noreferrer"
+                  class="yt-link" aria-label="Open video">▶</a>`
+            : `<span class="link-spacer" aria-hidden="true"></span>`
+        }
+      </div>
+    `;
+  })
+  .join('')}
+
             </div>
           `
               : '<p>No tracks available</p>'
