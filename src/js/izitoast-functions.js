@@ -28,6 +28,17 @@ export function errorApiIzT(error) {
     });
   }
 }
+export function errorApiFeedback(err) {
+  iziToast.show({
+    title: 'Error',
+    color: 'red',
+    position: 'topRight',
+    messageColor: 'white',
+    titleColor: 'white',
+    message: err,
+    timeout: 5000,
+  });
+}
 
 export function successDataIzT(response) {
   if (response.data.message) {
