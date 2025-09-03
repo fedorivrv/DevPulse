@@ -99,18 +99,19 @@ function renderReviews(reviews) {
 function generateStars(rating) {
   const fullStars = Math.floor(rating);
   const totalStars = 5;
+  const spriteUrl = './img/icon.svg'; 
+
   let html = '';
   for (let i = 1; i <= totalStars; i++) {
-    html += `
-      <div class="star">
-        <svg class="star-empty">
-          <use xlink:href="../img/icon.svg#star-empty"></use>
-        </svg>
-        <svg class="star-filled" ${i <= fullStars ? '' : 'style="display:none"'} >
-          <use xlink:href="../img/icon.svg#star-filled"></use>
-        </svg>
-      </div>
-    `;
+    const filledVisible = i <= fullStars ? '' : 'style="display:none"';
+    html += `<div class="star">
+      <svg class="star-empty" aria-hidden="true" focusable="false">
+        <use href="${spriteUrl}#star-empty" xlink:href="${spriteUrl}#star-empty"></use>
+      </svg>
+      <svg class="star-filled" ${filledVisible} aria-hidden="true" focusable="false">
+        <use href="${spriteUrl}#star-filled" xlink:href="${spriteUrl}#star-filled"></use>
+      </svg>
+    </div>`;
   }
   return `<div class="star-container">${html}</div>`;
 }
