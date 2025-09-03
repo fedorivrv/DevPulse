@@ -1,20 +1,5 @@
 
-:root {
-    --color-scheme-1-background: #0b0b0d;
-    --color-scheme-1-text: #fff;
-    --color-scheme-2-foreground: rgba(255, 255, 255, .06);
-    --opacity-white-20: rgba(255, 255, 255, .2);
 
-   
-    --col-time: 56px;
-    --col-link: 36px;
-    --tracks-gap: 12px;
-
-    --yt-pill-w: 40px;
-    --yt-pill-h: 24px;
-    --yt-icon-w: 18px;
-    --yt-icon-h: 12px;
-}
 
 /* ================== Бекдроп и модалка ================== */
 #artist-modal-backdrop {
@@ -228,7 +213,7 @@
     flex-direction: column;
     gap: 12px;
     isolation: isolate;
-    /* свой стек, чтобы заголовок всегда сверху */
+   
 }
 
 .album-card h4 {
@@ -286,7 +271,7 @@
 }
 
 .track .yt-link {
-    /* пилюля ТОЛЬКО в строках (в header её нет в разметке) */
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -330,8 +315,7 @@
     filter: brightness(.95);
 }
 
-/* ================== Адаптив ================== */
-/* Мобайл — одна колонка */
+
 @media (max-width:480px) {
     #artist-modal {
         display: flex;
