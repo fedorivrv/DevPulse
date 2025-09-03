@@ -16,6 +16,10 @@
   padding: 64px 16px 32px 16px;
   gap: 40px;
 }
+.feedback.container {
+  padding-left: 0;
+  padding-right: 0;
+}
 .swiper {
   position: relative;
   margin-bottom: 80px;

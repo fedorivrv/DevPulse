@@ -51,3 +51,15 @@ export function successDataIzT(response) {
     });
   }
 }
+
+export function successFeedback() {
+
+    iziToast.success({
+      message: 'Thank you for your feedback! It has been sent successfully.',
+      position: 'topRight',
+      messageColor: 'white',
+      titleColor: 'white',
+      timeout: 5000,
+    });
+  
+}
