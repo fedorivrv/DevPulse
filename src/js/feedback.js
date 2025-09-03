@@ -101,16 +101,14 @@ function generateStars(rating) {
   const totalStars = 5;
   let html = '';
   for (let i = 1; i <= totalStars; i++) {
-    html += `
-      <div class="star">
+    html += `<div class="star">
         <svg class="star-empty">
-          <use xlink:href="./img/icon.svg#star-empty"></use>
+          <use href="./img/icon.svg#star-empty"></use>
         </svg>
         <svg class="star-filled" ${i <= fullStars ? '' : 'style="display:none"'} >
-          <use xlink:href="./img/icon.svg#star-filled"></use>
+          <use href="./img/icon.svg#star-filled"></use>
         </svg>
-      </div>
-    `;
+      </div>`;
   }
   return `<div class="star-container">${html}</div>`;
 }
