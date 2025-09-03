@@ -1,4 +1,4 @@
-import { openArtistModal } from './js/artist-modal-functionality';
+import { openArtistModal } from './js/artist-modal-functionality.js';
 import {
   checkVisibleLoadBtn,
   createArtists,
@@ -13,56 +13,57 @@ import './js/feedback';
 import { openFedbackModal } from './js/feedback-modal';
 
 const btnLdMrEl = document.querySelector('.load-more');
+const listArtistsEl = document.querySelector('.list-artists');
 let page = 1;
 
+// === Завантаження артистів при старті ===
 document.addEventListener('DOMContentLoaded', async () => {
-  showLoader(); // Включаємо лоадер перед запитом
+  showLoader();
   try {
-    showLoader(); // функція включення лоудера
     hideLoadMoreButton();
     const artists = await getArtists({});
-    if (artists.length > 0) {
+    if (artists?.length > 0) {
       createArtists(artists);
     }
   } catch (error) {
     errorApiIzT(error);
   } finally {
-    hideLoader(); //функція виключення лоудера
+    hideLoader();
     checkVisibleLoadBtn(page);
-    hideLoader(); // Вимикаємо лоадер після завершення
   }
+
+  // === Ініціалізація відгуків після завантаження артистів ===
+  initFeedbacks();
 });
 
+// === Кнопка "Load More" ===
 btnLdMrEl.addEventListener('click', async () => {
   page += 1;
-  showLoader(); // Включаємо лоадер при натисканні
+  showLoader();
   try {
-    showLoader(); // функція включення лоудера
     hideLoadMoreButton();
     const artists = await getArtists({ page });
-    if (artists.length > 0) {
+    if (artists?.length > 0) {
       updateArtists(artists);
     }
   } catch (error) {
     errorApiIzT(error);
   } finally {
-    hideLoader(); // Вимикаємо лоадер
+    hideLoader();
     checkVisibleLoadBtn(page);
   }
 });
 
-const listArtistsEl = document.querySelector('.list-artists');
-
+// === Відкриття модалки артиста ===
 listArtistsEl.addEventListener('click', e => {
   const btn = e.target.closest('.learn-more-artist');
   if (!btn) return;
-
-  const artistId = btn.getAttribute('data-id');
+  const artistId = btn.dataset.id;
   if (!artistId) return;
-
   openArtistModal(artistId);
 });
 
+// === Бургер-меню ===
 const burgerBtnElem = document.querySelector('.burger-btn');
 const burgerMenuElem = document.querySelector('.burger-menu');
 const navListElem = document.querySelector('.nav-list');
@@ -70,32 +71,22 @@ const navListElem = document.querySelector('.nav-list');
 burgerBtnElem.addEventListener('click', () => {
   burgerBtnElem.classList.toggle('is-open');
   burgerMenuElem.classList.toggle('is-open');
-
   document.body.classList.toggle('no-scroll');
 });
-let res = 0;
-burgerMenuElem.addEventListener('click', e => {
-  if (e.target.nodeName !== 'A') {
-    return;
-  }
-  e.preventDefault();
-  burgerBtnElem.classList.toggle('is-open');
-  burgerMenuElem.classList.toggle('is-open');
 
-  document.body.classList.toggle('no-scroll');
-  const id = e.target.getAttribute('href');
-  scroll(id);
-  res = 0;
+burgerMenuElem.addEventListener('click', e => {
+  if (e.target.nodeName !== 'A') return;
+  e.preventDefault();
+  burgerBtnElem.classList.remove('is-open');
+  burgerMenuElem.classList.remove('is-open');
+  document.body.classList.remove('no-scroll');
+  scroll(e.target.getAttribute('href'));
 });
 
 navListElem.addEventListener('click', e => {
-  if (e.target.nodeName !== 'A') {
-    return;
-  }
+  if (e.target.nodeName !== 'A') return;
   e.preventDefault();
-  const id = e.target.getAttribute('href');
-  scroll(id);
-  res = 0;
+  scroll(e.target.getAttribute('href'));
 });
 
 

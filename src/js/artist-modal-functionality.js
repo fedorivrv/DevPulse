@@ -150,11 +150,13 @@ function renderArtist(artist, albums) {
 
     <div class="albums">
       <h3>Albums</h3>
+      <div class="albums-grid">
       ${
         albums.length
           ? albums
               .map(
                 album => `
+                
         <div class="album">
           <div class="album-title">${album.strAlbum || '—'}</div>
           ${
@@ -189,6 +191,7 @@ function renderArtist(artist, albums) {
               .join('')
           : '<p>No albums available.</p>'
       }
+          </div>
     </div>
   `;
 }
