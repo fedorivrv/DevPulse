@@ -1,4 +1,4 @@
-import iconArrow from '../img/icon-right-arrow.png';
+import iconArrow from '../images/icon-right-arrow.png';
 
 import { MAX_PAGE_ARTIST } from './sound-wave-api';
 const btnLdMrEl = document.querySelector('.load-more');
