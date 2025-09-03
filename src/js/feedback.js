@@ -104,10 +104,10 @@ function generateStars(rating) {
     html += `
       <div class="star">
         <svg class="star-empty">
-          <use xlink:href="../img/icon.svg#star-empty"></use>
+          <use xlink:href="../images/icon.svg#star-empty"></use>
         </svg>
         <svg class="star-filled" ${i <= fullStars ? '' : 'style="display:none"'} >
-          <use xlink:href="../img/icon.svg#star-filled"></use>
+          <use xlink:href="../images/icon.svg#star-filled"></use>
         </svg>
       </div>
     `;
