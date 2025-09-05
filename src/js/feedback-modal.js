@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { errorApiFeedback, errorApiIzT } from './izitoast-functions';
+import { errorApiFeedback, errorApiIzT, successFeedback } from './izitoast-functions';
 import iziToast from 'izitoast';
 
 const feedbackCloseBtnEl = document.querySelector('.feedback-close-btn');
@@ -72,10 +72,9 @@ export function openFedbackModal() {
         feedbackModalRatingElems.forEach(starBtn => {
           starBtn.children[0].classList.remove('is-click');
         });
-
         backdropFeedbackModal.classList.remove('feedback-is-open');
-
         document.body.classList.remove('no-scroll');
+        successFeedback();
       } catch (err) {
         errorApiFeedback(err);
       }
