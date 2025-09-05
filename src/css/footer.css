@@ -87,6 +87,11 @@
     margin-bottom: 48px;
 
 }
+.footer-logo {
+    
+    color : var(--color-primary);
+    
+}
 
 @media (min-width: 768px) {
     .footer {
@@ -144,6 +149,10 @@
         margin: 0;
         order: 1;
 
+    } 
+    .footer-social-img:hover,
+    .footer-link:hover {
+        opacity: 60%;
     }
 
     .footer-rights {
