@@ -136,22 +136,25 @@ function renderArtist(artist, albums) {
     : 'information missing';
 
   content.innerHTML = `
-    <div class="artist-header">
-    <h2>${artist.strArtist}</h2>
-    <div class="artist-header-content">
+   <div class="artist-header">
+  <h2>${artist.strArtist}</h2>
+
+  <div class="artist-header-content">
+    <!-- Ліва колонка: фото -->
     <div class="artist-header-left">
-    
-    <img class="artist-header-photo" src="${artist.strArtistThumb || ''}" alt="${artist.strArtist}">
-  </div>
-  <div class="artist-header-right">
-    ${yearsActive ? `<p><b>Years active:</b> ${yearsActive}</p>` : ''}
-    ${artist.strGender ? `<p><b>Sex:</b> ${artist.strGender}</p>` : ''}
-    ${artist.intMembers ? `<p><b>Members:</b> ${artist.intMembers}</p>` : ''}
-    ${artist.strCountry ? `<p><b>Country:</b> ${artist.strCountry}</p>` : ''}
-    ${artist.strLabel ? `<p><b>Label:</b> ${artist.strLabel}</p>` : ''}
-    ${artist.strBiographyEN ? `<p><b>Biography:</b> ${artist.strBiographyEN}</p>` : ''}
-    ${artist.genres && artist.genres.length ? `<p><b>Genres:</b> ${artist.genres.join(', ')}</p>` : ''}
-  </div>
+      <img class="artist-header-photo" src="${artist.strArtistThumb || ''}" alt="${artist.strArtist}">
+    </div>
+
+    <!-- Права колонка: інформація -->
+    <div class="artist-header-right">
+      ${yearsActive ? `<p><b>Years active:</b> ${yearsActive}</p>` : ''}
+      ${artist.strGender ? `<p><b>Sex:</b> ${artist.strGender}</p>` : ''}
+      ${artist.intMembers ? `<p><b>Members:</b> ${artist.intMembers}</p>` : ''}
+      ${artist.strCountry ? `<p><b>Country:</b> ${artist.strCountry}</p>` : ''}
+      ${artist.strLabel ? `<p><b>Label:</b> ${artist.strLabel}</p>` : ''}
+      ${artist.strBiographyEN ? `<p><b>Biography:</b> ${artist.strBiographyEN}</p>` : ''}
+      ${artist.genres && artist.genres.length ? `<p><b>Genres:</b> ${artist.genres.join(', ')}</p>` : ''}
+    </div>
   </div>
 </div>
 
