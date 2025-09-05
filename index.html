@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/DevPulse/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArtistsHub</title>
+  <!-- Modern Normalize (ресет стилів браузера) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.css" />
+
+  <!-- Оптимізація швидкого завантаження шрифтів -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Підключення шрифтів -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Epilogue:wght@700&family=Roboto:wght@700&display=swap"
+    rel="stylesheet" />
+  <!-- Підключення CSS-файлів -->
+  <script type="module" crossorigin src="/DevPulse/index.js"></script>
+  <link rel="modulepreload" crossorigin href="/DevPulse/assets/vendor-_MF0lpIG.js">
+  <link rel="stylesheet" crossorigin href="/DevPulse/assets/vendor-B69C9buS.css">
+  <link rel="stylesheet" crossorigin href="/DevPulse/assets/index-Hvg7BvmJ.css">
+</head>
+
+<body>
+  <header class="header">
+  <div class="container header-container">
+    <a class="logo" href="https://fedorivrv.github.io/DevPulse/">
+      <svg class="logo-icon" width="106" height="30">
+        <use href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-logo"></use>
+      </svg>
+    </a>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="#artists">Artists</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#aboutUs">About Us</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#review">Reviews</a></li>
+      </ul>
+    </nav>
+    <button class="burger-btn" type="button">
+      <span class="burger-icon"></span>
+    </button>
+  </div>
+</header>
+
+  <div class="burger-menu">
+  <div class="burger-menu-container container">
+    <nav class="burger-menu-nav">
+        <ul class="burger-nav-list">
+          <li class="burger-menu-nav-item"><a class="burger-nav-link" href="#artists">Artists</a></li>
+          <li class="burger-menu-nav-item"><a class="burger-nav-link" href="#aboutUs">About Us</a></li>
+          <li class="burger-menu-nav-item"><a class="burger-nav-link" href="#reviews">Reviews</a></li>
+        </ul>
+      </nav>
+  </div>
+</div>
+
+  <main>
+    <section class="hero">
+  <div class="hero-inner container">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <!-- Мобільна версія -->
+        <span class="mob-line">Discover</span>
+        <span class="mob-line">Your Next</span>
+        <span class="mob-line">Favorite</span>
+        <span class="mob-line">Artist</span>
+        <span class="mob-line">Today</span>
+
+        <!-- Планшет -->
+        <span class="tab-line">Discover Your Next</span>
+        <span class="tab-line">Favorite Artist Today</span>
+
+        <!-- Десктоп -->
+        <span class="desk-line">Discover Your</span>
+        <span class="desk-line">Next Favorite</span>
+        <span class="desk-line">Artist Today</span>
+      </h1>
+      <h2 class="hero-subtitle">
+        Dive into a world of music discoveries with ArtistsHub – your personal
+        guide to the boundless universe of sound. Explore, filter, and learn
+        about your favorite artists all in one place.
+      </h2>
+      <a href="#artists" class="btn">
+        Explore Artists
+        <svg
+          class="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <use href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-right-arrow"></use>
+        </svg>
+      </a>
+    </div>
+    \
+    <div class="hero-bg"></div>
+  </div>
+</section>
+
+    <section class="section-artists" id="artists">
+  <div class="container">
+    <div class="head-artists">
+      <h2 class="text-artists">Artists</h2>
+      <h3 class="title-artists">Explore Your New Favorite Artists</h3>
+    </div>
+    <ul class="list-artists"></ul>
+    <div class="global-loader hidden">
+      <div class="spinner"></div>
+    </div>
+    <button class="load-more">
+      Load More
+      <svg class="icon-load-more" width="24" height="24">
+        <use href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-down-arrow-alt"></use>
+      </svg>
+    </button>
+  </div>
+</section>
+
+    <section class="about-section" id="aboutUs">
+  <div class="container">
+    <div class="about-section-content">
+      <picture>
+        <source
+          srcset="/DevPulse/assets/team-img-mob-9RvNC4XZ.webp 1x, /DevPulse/assets/team-img-mob-@2x-CK1KdQ7C.webp 2x"
+          media="(max-width: 767px)"
+        />
+        <source
+          srcset="/DevPulse/assets/team-img-tab-iy_DayYx.webp 1x, /DevPulse/assets/team-img-tab-@2x-CEVEZJbe.webp 2x"
+          media="(min-width: 768px) and (max-width: 1439px)"
+        />
+        <source
+          srcset="/DevPulse/assets/team-img-desk-CZp8Ih4k.webp 1x, /DevPulse/assets/team-img-desk-@2x-5sdXd4lp.webp 2x"
+          media="(min-width: 1440px)"
+        />
+        <img
+          class="about-section-image"
+          src="/DevPulse/assets/team-img-desk-CZp8Ih4k.webp"
+          alt="Team of ArtistsHub"
+          loading="lazy"
+          width="640"
+        />
+      </picture>
+
+      <div class="about-section-text">
+        <svg class="about-section-icon" aria-hidden="true">
+          <use href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-logo-icon" />
+        </svg>
+        <h2 class="about-section-title">About ArtistsHub</h2>
+        <p class="about-section-description">
+          At ArtistsHub, our mission is to connect music lovers with the artists
+          they adore. We strive to create a vibrant online community where
+          discovering new music is as enjoyable as listening to it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- === Блок відгуків (основний контейнер) === -->
+<section class="feedback container" id="review">
+  <h2 class="visually-hidden">Feedbacks our visitors</h2>
+  <!-- === Слайдер Swiper === -->
+  <div class="swiper">
+    <!-- === Контейнер для відгуків (слайди) === -->
+    <div class="swiper-wrapper" id="reviews-container"></div>
+    <!-- === Кнопки навігації (стрілки) === -->
+    <div class="swiper-button-prev">
+      <svg>
+        <use xlink:href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-left-arrow-alt"></use>
+      </svg>
+    </div>
+    <div class="swiper-button-next">
+      <svg>
+        <use xlink:href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-right-arrow-alt"></use>
+      </svg>
+    </div>
+
+    <!-- === Пагінація (крапки) === -->
+    <div class="swiper-pagination"></div>
+  </div>
+  <button class="leave-feedback" id="leave-feedback-button">
+    Leave feedback
+  </button>
+</section>
+
+
+
+
+
+  </main>
+
+  <div id="artist-modal-backdrop" class="backdrop hidden">
+  <div id="artist-modal" class="modal">
+    <button id="artist-close-btn" class="close-btn">✖</button>
+
+    <div id="artist-content" class="hidden"></div>
+    <div class="global-loader hidden">
+      <div class="spinner"></div>
+    </div>
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container footer-container">
+    <!-- лого -->
+    <a href="./index.html" class="footer-link-logo">
+      <svg class="footer-logo" width="116" height="45">
+        <use href="/DevPulse/assets/Company%20Logo-BjTQoyMB.svg"></use>
+      </svg>
+    </a>
+
+    <!-- футер-меню -->
+    <div class="footer-link-wrap">
+      <h3 class="visually-hidden">Footer Links</h3>
+
+      <ul class="footer-link-list">
+        <li class="footer-link-item">
+          <a class="footer-link" href="#artists">Artists</a>
+        </li>
+        <li class="footer-link-item">
+          <a class="footer-link" href="#aboutUs">About us</a>
+        </li>
+        <li class="footer-link-item">
+          <a class="footer-link" href="#reviews">Reviews</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- нижній рядок -->
+    <div class="credits">
+      <!-- лінія -->
+      <hr class="footer-divider" />
+      <div class="row">
+        <div class="footer-social-link">
+          <ul class="footer-social-list">
+            <li class="footer-social-item">
+              <a class="footer-social-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                <svg class="footer-social-img" width="40" height="40">
+                  <use href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-Instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="footer-social-item">
+              <a class="footer-social-link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                <svg class="footer-social-img" width="40" height="40">
+                  <use href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-Facebook"></use>
+                </svg>
+              </a>
+            </li>
+
+            <li class="footer-social-item">
+              <a class="footer-social-link" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                <svg class="footer-social-img" width="40" height="40">
+                  <use href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-Youtube"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <p class="footer-rights">© 2025 ArtistsHub. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+  <div class="backdrop-feedback-modal">
+  <div class="feedback-modal">
+<button class="feedback-close-btn" type="button">
+  <svg class="feedback-close-btn-icon" width="32" height="32">
+    <use href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-Icon"></use>
+  </svg>
+</button>
+<h3 class="feedback-modal-title">Submit feedback</h3>
+<form class="feedback-modal-form">
+<div class="feedback-modal-item">
+  <label for="user-name" class="feedback-modal-label">Name</label>
+  <div class="feedback-modal-block">
+    <input class="feedback-modal-input" id="user-name" type="text" name="user-name" placeholder="Emily">
+  </div>
+</div>
+<div class="feedback-modal-item">
+  <label for="user-message" class="feedback-modal-label">Message </label>
+  <div class="feedback-modal-block">
+    <textarea class="feedback-modal-textarea"  id="user-message" name="user-message" placeholder="Type your message..."></textarea>
+  </div>
+</div>
+<ul class="feedback-modal-list">
+  <li class="feedback-list-modal-item">
+    <button type="button" class="feedback-modal-rating" data-value="1">
+    <svg class="feedback-modal-star" width="31" height="29">
+      <use href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-Vector-1"></use>
+    </svg>
+    </button>
+  </li>
+  <li class="feedback-list-modal-item">
+    <button type="button" class="feedback-modal-rating" data-value="2">
+      <svg class="feedback-modal-star" width="31" height="29">
+        <use href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-Vector-1"></use>
+      </svg>
+    </button>
+  </li>
+    <li class="feedback-list-modal-item">
+      <button type="button" class="feedback-modal-rating" data-value="3">
+        <svg class="feedback-modal-star" width="31" height="29">
+          <use href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-Vector-1"></use>
+        </svg>
+      </button>
+    </li>
+      <li class="feedback-list-modal-item">
+        <button type="button" class="feedback-modal-rating" data-value="4">
+          <svg class="feedback-modal-star" width="31" height="29">
+            <use href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-Vector-1"></use>
+          </svg>
+        </button>
+      </li>
+        <li class="feedback-list-modal-item">
+          <button type="button" class="feedback-modal-rating" data-value="5">
+            <svg class="feedback-modal-star" width="31" height="29">
+              <use href="/DevPulse/assets/icon-C3-ZJr1G.svg#icon-Vector-1"></use>
+            </svg>
+          </button>
+        </li>
+</ul>
+<button class="feedback-modal-button" type="submit">Submit</button>
+</form>
+  </div>
+</div>
+
+</body>
+
+</html>
