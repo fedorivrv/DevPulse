@@ -1,3 +1,9 @@
+.swiper-pagination-bullet.swiper-pagination-bullet-active:hover {
+  background: var(--color-scheme-1-text, #fff) !important;
+  transform: none;
+  box-shadow: none;
+  cursor: default;
+}
 /* === Прихований заголовок для доступності === */
 .visually-hidden {
   position: absolute !important;
@@ -133,8 +139,17 @@
 
 /* === Пагінація Swiper (крапки) === */
 .swiper-pagination-bullet {
-  background: var(--color-neutral, #828183) !important;
+  background: var(--color-neutral) !important;
   margin: 0 5px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+
+.swiper-pagination-bullet:hover {
+  background: var(--color-white) !important;
+  transform: scale(1.2);
 }
 
 .swiper-pagination-bullet-active {
