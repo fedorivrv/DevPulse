@@ -3,25 +3,23 @@ import { errorApiFeedback, errorApiIzT, successFeedback } from './izitoast-funct
 import iziToast from 'izitoast';
 
 const feedbackCloseBtnEl = document.querySelector('.feedback-close-btn');
-const backdropFeedbackModal = document.querySelector(
-  '.backdrop-feedback-modal'
-);
+const backdropFeedbackModal = document.querySelector('.backdrop-feedback-modal');
 const feedbackIsOpen = document.querySelector('.feedback-is-open');
 const feedbackFormEl = document.querySelector('.feedback-modal-form');
 const feedBackInputEl = document.querySelector('.feedback-modal-input');
 const feedBackTextarea = document.querySelector('.feedback-modal-textarea');
 const feedbackRating = document.querySelector('.feedback-modal-list');
-const feedbackModalRatingElems = document.querySelectorAll(
-  '.feedback-modal-rating'
-);
+const feedbackModalRatingElems = document.querySelectorAll('.feedback-modal-rating');
 
 const feedBack = {
   name: '',
   descr: '',
   rating: 0,
 };
+
 export function openFedbackModal() {
   document.body.classList.add('no-scroll');
+
   feedBackInputEl.addEventListener('input', e => {
     if (e.target.value.length < 2 || e.target.value.length > 16) {
       feedBackInputEl.classList.add('is-error');
@@ -29,8 +27,9 @@ export function openFedbackModal() {
       feedBackInputEl.classList.remove('is-error');
     }
   });
+
   feedBackTextarea.addEventListener('input', e => {
-    if ((e.target.value.length < 10) | (e.target.value.length > 512)) {
+    if (e.target.value.length < 10 || e.target.value.length > 512) {
       feedBackTextarea.classList.add('is-error');
     } else {
       feedBackTextarea.classList.remove('is-error');
@@ -83,22 +82,38 @@ export function openFedbackModal() {
     }
   });
 
-  feedbackCloseBtnEl.addEventListener('click', () => {
-    backdropFeedbackModal.classList.remove('feedback-is-open');
-    document.body.classList.remove('no-scroll');
-  });
+  feedbackCloseBtnEl.addEventListener('click', closeModal);
+
   backdropFeedbackModal.addEventListener('click', e => {
     if (e.target === e.currentTarget) {
-      backdropFeedbackModal.classList.remove('feedback-is-open');
-      document.body.classList.remove('no-scroll');
+      closeModal();
     }
   });
+
   window.addEventListener('keydown', closeFeddbackMoodal);
 }
+
 function closeFeddbackMoodal(e) {
   if (e.key === 'Escape') {
-    backdropFeedbackModal.classList.remove('feedback-is-open');
+    closeModal();
     window.removeEventListener('keydown', closeFeddbackMoodal);
-    document.body.classList.remove('no-scroll');
   }
+}
+
+function resetFeedbackForm() {
+  feedbackFormEl.reset();
+  feedBack.rating = 0;
+
+  feedbackModalRatingElems.forEach(starBtn => {
+    starBtn.children[0].classList.remove('is-click');
+  });
+
+  feedBackInputEl.classList.remove('is-error');
+  feedBackTextarea.classList.remove('is-error');
+}
+
+function closeModal() {
+  backdropFeedbackModal.classList.remove('feedback-is-open');
+  document.body.classList.remove('no-scroll');
+  resetFeedbackForm();
 }
