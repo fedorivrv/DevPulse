@@ -73,33 +73,71 @@
 .artist-header {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+
+    text-align: left;
 }
 
 .artist-header h2 {
+    text-align: center;
     margin-bottom: 16px;
     font-size: 28px;
     font-weight: 600;
 }
 
 .artist-header img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
+    width: 100%;
+    height: 176px;
+    object-fit: contain;
+
+    border-radius: 5%;
     margin-bottom: 16px;
 
 }
 
+@media screen and (min-width: 768px) {
+    .artist-header img {
+        height: 402px;
+    }
+}
+
+@media screen {
+    .artist-header-content {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        /* вирівнює по верхньому краю */
+        gap: 20px;
+        /* відступ між лівою та правою колонкою */
+    }
+
+    .artist-header-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* щоб заголовок і фото були по центру */
+        min-width: 400px;
+        /* можна обмежити ширину */
+        justify-content: flex-start;
+    }
+
+    .artist-header-right {
+        flex: 1;
+        /* займає решту простору */
+    }
+}
+
+
+
 .artist-header p {
     margin: 4px 0;
     font-size: 16px;
+    text-align: left;
 }
 
 /* --- Albums Section --- */
 .albums {
     margin-top: 32px;
+    text-align: center;
 }
 
 .albums h3 {
@@ -133,7 +171,7 @@
 .album {
     margin-bottom: 24px;
     padding: 16px;
-
+    text-align: left;
     border-radius: 12px;
 }
 
