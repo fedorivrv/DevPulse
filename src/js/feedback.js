@@ -1,7 +1,6 @@
 import { getRandomPageFeedbacks } from './sound-wave-api.js';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
-import 'css-star-rating/css/star-rating.css';
 
 // === Ініціалізація відгуків ===
 export async function initFeedbacks() {
@@ -99,19 +98,21 @@ function renderReviews(reviews) {
 function generateStars(rating) {
   const fullStars = Math.floor(rating);
   const totalStars = 5;
-  const spriteUrl = './images/icon.svg'; 
-
-  let html = '';
-  for (let i = 1; i <= totalStars; i++) {
-    const filledVisible = i <= fullStars ? '' : 'style="display:none"';
-    html += `<div class="star">
-      <svg class="star-empty" aria-hidden="true" focusable="false">
-        <use href="${spriteUrl}#star-empty" xlink:href="${spriteUrl}#star-empty"></use>
+  const svgStars = `<div class="star">
+      <svg class="star-empty" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+        <path fill="#fff" d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 
+        1.402 8.173L12 18.897l-7.336 3.86 
+        1.402-8.173L.132 9.21l8.2-1.192z"></path>
       </svg>
-      <svg class="star-filled" ${filledVisible} aria-hidden="true" focusable="false">
-        <use href="${spriteUrl}#star-filled" xlink:href="${spriteUrl}#star-filled"></use>
+      <svg class="star-filled" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+        <path fill="#764191" d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 
+        1.402 8.173L12 18.897l-7.336 3.86 
+        1.402-8.173L.132 9.21l8.2-1.192z"></path>
       </svg>
     </div>`;
+  let html = '';
+  for (let i = 1; i <= totalStars; i++) {
+    html += svgStars;
   }
   return `<div class="star-container">${html}</div>`;
 }
