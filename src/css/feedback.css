@@ -1,3 +1,9 @@
+.swiper-pagination-bullet.swiper-pagination-bullet-active:hover {
+  background: var(--color-scheme-1-text, #fff) !important;
+  transform: none;
+  box-shadow: none;
+  cursor: default;
+}
 /* === Прихований заголовок для доступності === */
 .visually-hidden {
   position: absolute !important;
@@ -74,7 +80,7 @@
   border-radius: 8px;
   border-width: 1px;
   border-style: solid;
-  border-color: var(--color-neutral-darker);
+  border-color: var(--color-neutral);
   width: 48px !important;
   height: 48px !important;
   display: none !important;
@@ -91,12 +97,7 @@
 .swiper-button-next:active,
 .swiper-button-prev:active {
   background: var(--color-neutral-darker);
-}
-
-.swiper-button-next:active svg,
-.swiper-button-prev:active svg {
-  color: var(--color-white);
-  fill: var(--color-white);
+  transform: scale(1.1);
 }
 
 .swiper-button-prev:after,
@@ -106,25 +107,53 @@
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  color: var(--color-neutral-darker);
+  color: var(--color-neutral);
+  border-color: var(--color-neutral-darker);
 }
 
 /* === SVG-іконки стрілок у кнопках навігації === */
 .swiper-button-next svg,
 .swiper-button-prev svg {
-  width: 24px;
-  height: 24px;
+  width: 24px !important;
+  height: 24px !important;
   display: block;
-  fill: currentColor;
+
+  color: var(--color-white);
   transition:
     color 0.1s,
     fill 0.1s;
 }
+.swiper-button-next:hover svg,
+.swiper-button-prev:hover svg {
+  color: var(--color-neutral);
+}
+.swiper-button-next:active svg,
+.swiper-button-prev:active svg {
+  color: var(--color-white) !important;
+  fill: var(--color-white) !important;
+}
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+  background: var(--color-neutral-darkest);
+  color: var(--color-neutral-darker);
+  border-color: var(--color-neutral-darkest);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
 
 /* === Пагінація Swiper (крапки) === */
 .swiper-pagination-bullet {
-  background: var(--color-neutral, #828183) !important;
+  background: var(--color-neutral) !important;
   margin: 0 5px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+
+.swiper-pagination-bullet:hover {
+  background: var(--color-white) !important;
+  transform: scale(1.2);
 }
 
 .swiper-pagination-bullet-active {
@@ -155,6 +184,62 @@
 
 .leave-feedback:hover {
   opacity: 0.6;
+}
+
+/* Зірки рейтингу */
+
+.star {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 20px;
+  display: flex;
+}
+.star svg,
+.star i {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.star svg.star-half,
+.star svg.star-filled,
+.star i.star-half,
+.star i.star-filled {
+  opacity: 0;
+}
+
+.star.filled svg.star-empty,
+.rating.value-5 .star-container .star:nth-child(-n + 5) svg.star-empty,
+.rating.value-4 .star-container .star:nth-child(-n + 4) svg.star-empty,
+.rating.value-3 .star-container .star:nth-child(-n + 3) svg.star-empty,
+.rating.value-2 .star-container .star:nth-child(-n + 2) svg.star-empty,
+.rating.value-1 .star-container .star:nth-child(-n + 1) svg.star-empty,
+.star.filled svg.star-filled,
+.rating.value-5 .star-container .star:nth-child(-n + 5) svg.star-filled,
+.rating.value-4 .star-container .star:nth-child(-n + 4) svg.star-filled,
+.rating.value-3 .star-container .star:nth-child(-n + 3) svg.star-filled,
+.rating.value-2 .star-container .star:nth-child(-n + 2) svg.star-filled,
+.rating.value-1 .star-container .star:nth-child(-n + 1) svg.star-filled {
+  opacity: 0;
+}
+.star.filled svg.star-filled,
+.rating.value-5 .star-container .star:nth-child(-n + 5) svg.star-filled,
+.rating.value-4 .star-container .star:nth-child(-n + 4) svg.star-filled,
+.rating.value-3 .star-container .star:nth-child(-n + 3) svg.star-filled,
+.rating.value-2 .star-container .star:nth-child(-n + 2) svg.star-filled,
+.rating.value-1 .star-container .star:nth-child(-n + 1) svg.star-filled,
+.star.filled i.star-filled,
+.rating.value-5 .star-container .star:nth-child(-n + 5) i.star-filled,
+.rating.value-4 .star-container .star:nth-child(-n + 4) i.star-filled,
+.rating.value-3 .star-container .star:nth-child(-n + 3) i.star-filled,
+.rating.value-2 .star-container .star:nth-child(-n + 2) i.star-filled,
+.rating.value-1 .star-container .star:nth-child(-n + 1) i.star-filled {
+  opacity: 1;
+}
+
+.star-container {
+  display: flex;
+  justify-content: center;
 }
 
 /* === Адаптив (планшет) === */
