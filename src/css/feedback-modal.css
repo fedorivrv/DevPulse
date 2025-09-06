@@ -123,9 +123,9 @@ margin-bottom: 16px;
 .feedback-modal-star {
   fill:  var(--color-scheme-1-text);;
 }
-.feedback-modal-star:hover {
+/* .feedback-modal-star:hover {
   fill: var(--color-affair);
-}
+} */
 .feedback-modal-star.is-click{
 fill: var(--color-affair);
 }
