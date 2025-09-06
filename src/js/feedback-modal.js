@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { errorApiFeedback, errorApiIzT, successFeedback } from './izitoast-functions';
-import iziToast from 'izitoast';
+
 
 const feedbackCloseBtnEl = document.querySelector('.feedback-close-btn');
 const backdropFeedbackModal = document.querySelector('.backdrop-feedback-modal');
@@ -35,7 +35,24 @@ export function openFedbackModal() {
       feedBackTextarea.classList.remove('is-error');
     }
   });
-
+  feedbackRating.addEventListener('mouseover', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    for (let index = feedBack.rating; index < btn.dataset.value; index++) {
+      feedbackModalRatingElems[index].children[0].classList.add('is-click');
+    }
+  });
+ feedbackRating.addEventListener('mouseout', e => {
+   const btn = e.target.closest('button');
+   if (!btn) return;
+   for (
+     let index = feedBack.rating;
+     index < feedbackModalRatingElems.length;
+     index++
+   ) {
+     feedbackModalRatingElems[index].children[0].classList.remove('is-click');
+   }
+ });
   feedbackRating.addEventListener('click', e => {
     const btn = e.target.closest('button');
     if (!btn) return;
@@ -48,8 +65,27 @@ export function openFedbackModal() {
     }
   });
 
-  feedbackFormEl.addEventListener('submit', async e => {
-    e.preventDefault();
+  feedbackFormEl.addEventListener('submit',handleSubmitForm);
+
+  feedbackCloseBtnEl.addEventListener('click', closeModal);
+
+  backdropFeedbackModal.addEventListener('click', e => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  });
+
+  window.addEventListener('keydown', closeFeddbackMoodal);
+}
+
+function closeFeddbackMoodal(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+    window.removeEventListener('keydown', closeFeddbackMoodal);
+  }
+}
+async function handleSubmitForm(e) {
+  e.preventDefault();
     feedBack.name = e.target.elements['user-name'].value.trim();
     feedBack.descr = e.target.elements['user-message'].value.trim();
 
@@ -58,7 +94,7 @@ export function openFedbackModal() {
       feedBack.name.length <= 16 &&
       feedBack.descr.length >= 10 &&
       feedBack.descr.length <= 512 &&
-      feedBack.rating
+      feedBack.rating>0
     ) {
       try {
         const response = await axios.post(
@@ -79,26 +115,8 @@ export function openFedbackModal() {
       }
     } else {
       errorApiFeedback('Please fill all fields and select a rating!');
-    }
-  });
+    } }
 
-  feedbackCloseBtnEl.addEventListener('click', closeModal);
-
-  backdropFeedbackModal.addEventListener('click', e => {
-    if (e.target === e.currentTarget) {
-      closeModal();
-    }
-  });
-
-  window.addEventListener('keydown', closeFeddbackMoodal);
-}
-
-function closeFeddbackMoodal(e) {
-  if (e.key === 'Escape') {
-    closeModal();
-    window.removeEventListener('keydown', closeFeddbackMoodal);
-  }
-}
 
 function resetFeedbackForm() {
   feedbackFormEl.reset();
@@ -114,6 +132,7 @@ function resetFeedbackForm() {
 
 function closeModal() {
   backdropFeedbackModal.classList.remove('feedback-is-open');
+  feedbackFormEl.removeEventListener("submit", handleSubmitForm)
   document.body.classList.remove('no-scroll');
   resetFeedbackForm();
 }
