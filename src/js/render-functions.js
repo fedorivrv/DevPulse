@@ -1,3 +1,5 @@
+import iconArrow from '../img/icon-right-arrow.png';
+
 import { MAX_PAGE_ARTIST } from './sound-wave-api';
 const btnLdMrEl = document.querySelector('.load-more');
 
@@ -23,9 +25,7 @@ function templateImage(artist) {
         </div>
        <button class="learn-more-artist" data-id="${_id}">
           Learn More
-          <svg class="icon-learn-more" width="24" height="24">
-            <use href="./img/icon.svg#icon-right-arrow"></use>
-          </svg>
+          <img class="icon-learn-more" src="${iconArrow}" width="8" height="14" alt="icon right arrow"></img>
         </button>
       </li>
 `;

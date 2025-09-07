@@ -1,4 +1,4 @@
-
+const headerElem = document.querySelector('.header-container');
 
 export function scroll(id) {
   const elem = document.querySelector(id);
