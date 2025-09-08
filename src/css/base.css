@@ -75,18 +75,34 @@
 
 
 
-/* 🌞 Світла тема */
-[data-theme='light'] {
-  --color-bg: var(--white);
-  --color-fg: var(--neutral-700);
-  --color-border: var(--black-10);
-  --color-accent: var(--affair-400);
+/* Webkit-браузери (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  /* ширина вертикального скроллу */
+  height: 8px;
+  /* висота горизонтального скроллу */
 }
 
-/* 🌙 Темна тема */
-[data-theme='dark'] {
-  --color-bg: var(--neutral-700);
-  --color-fg: var(--white);
-  --color-border: var(--white-20);
-  --color-accent: var(--chateau-400);
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  /* трек */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  /* повзунок */
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
 }

@@ -23,6 +23,7 @@ listArtists.addEventListener('click', e => {
 });
 
 // --- Відкрити модалку артиста ---
+// --- Відкрити модалку артиста ---
 export async function openArtistModal(artistId) {
   if (!artistId) return console.error('Artist ID is missing!');
   if (!backdrop.classList.contains('hidden')) return;
@@ -135,20 +136,27 @@ function renderArtist(artist, albums) {
     : 'information missing';
 
   content.innerHTML = `
-    <div class="artist-header">
-      <h2>${artist.strArtist}</h2>
-      <img src="${artist.strArtistThumb || ''}" alt="${artist.strArtist}">
+   <div class="artist-header">
+  <h2>${artist.strArtist}</h2>
+
+  <div class="artist-header-content">
+    <!-- Ліва колонка: фото -->
+    <div class="artist-header-left">
+      <img class="artist-header-photo" src="${artist.strArtistThumb || ''}" alt="${artist.strArtist}">
+    </div>
+
+    <!-- Права колонка: інформація -->
+    <div class="artist-header-right">
       ${yearsActive ? `<p><b>Years active:</b> ${yearsActive}</p>` : ''}
       ${artist.strGender ? `<p><b>Sex:</b> ${artist.strGender}</p>` : ''}
       ${artist.intMembers ? `<p><b>Members:</b> ${artist.intMembers}</p>` : ''}
       ${artist.strCountry ? `<p><b>Country:</b> ${artist.strCountry}</p>` : ''}
-      ${artist.strLabel && artist.strLabel !== 'null' && artist.strLabel.trim()
-  ? `<p><b>Label:</b> ${artist.strLabel.trim()}</p>`
-  : ''}
-
+      ${artist.strLabel ? `<p><b>Label:</b> ${artist.strLabel}</p>` : ''}
       ${artist.strBiographyEN ? `<p><b>Biography:</b> ${artist.strBiographyEN}</p>` : ''}
       ${artist.genres && artist.genres.length ? `<p><b>Genres:</b> ${artist.genres.join(', ')}</p>` : ''}
     </div>
+  </div>
+</div>
 
     <div class="albums">
       <h3>Albums</h3>
@@ -160,7 +168,7 @@ function renderArtist(artist, albums) {
                 album => `
                 
         <div class="album">
-          <div class="album-title">${album.strAlbum || ''}</div>
+          <div class="album-title">${album.strAlbum || '—'}</div>
           ${
             album.tracks && album.tracks.length
               ? `
@@ -171,23 +179,18 @@ function renderArtist(artist, albums) {
                 <span>Link</span>
               </div>
               ${album.tracks
-  .map(track => {
-    const hasLink = track.movie && /^https?:\/\//i.test(track.movie);
-    return `
-      <div class="track">
-        <span class="track-title">${track.strTrack || '—'}</span>
-        <span class="track-time">${msToMinSec(track.intDuration)}</span>
-        ${
-          hasLink
-            ? `<a href="${track.movie}" target="_blank" rel="noopener noreferrer"
-                  class="yt-link" aria-label="Open video">▶</a>`
-            : `<span class="link-spacer" aria-hidden="true"></span>`
-        }
-      </div>
-    `;
-  })
-  .join('')}
-
+                .map(
+                  track => `
+                <div class="track">
+                  <span>${track.strTrack || '—'}</span>
+                  <span>${msToMinSec(track.intDuration)}</span>
+                  <span>
+                    ${track.movie ? `<a href="${track.movie}" target="_blank" class="yt-link">▶</a>` : '-'}
+                  </span>
+                </div>
+              `
+                )
+                .join('')}
             </div>
           `
               : '<p>No tracks available</p>'

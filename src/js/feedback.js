@@ -1,7 +1,6 @@
 import { getRandomPageFeedbacks } from './sound-wave-api.js';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
-import 'css-star-rating/css/star-rating.css';
 
 // === Ініціалізація відгуків ===
 export async function initFeedbacks() {
@@ -101,16 +100,13 @@ function generateStars(rating) {
   const totalStars = 5;
   let html = '';
   for (let i = 1; i <= totalStars; i++) {
-    html += `
-      <div class="star">
-        <svg class="star-empty">
-          <use xlink:href="../img/icon.svg#star-empty"></use>
-        </svg>
-        <svg class="star-filled" ${i <= fullStars ? '' : 'style="display:none"'} >
-          <use xlink:href="../img/icon.svg#star-filled"></use>
-        </svg>
-      </div>
-    `;
+    html += `<div class="star">
+      <svg class="${i <= fullStars ? 'star-filled' : 'star-empty'}" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+        <path fill="${i <= fullStars ? '#764191' : '#fff'}" d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 
+        1.402 8.173L12 18.897l-7.336 3.86 
+        1.402-8.173L.132 9.21l8.2-1.192z"></path>
+      </svg>
+    </div>`;
   }
   return `<div class="star-container">${html}</div>`;
 }

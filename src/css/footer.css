@@ -88,6 +88,12 @@
 
 }
 
+.footer-logo {
+
+    color: var(--color-primary);
+
+}
+
 @media (min-width: 768px) {
     .footer {
         padding: 80px 32px;
@@ -144,6 +150,11 @@
         margin: 0;
         order: 1;
 
+    }
+
+    .footer-social-img:hover,
+    .footer-link:hover {
+        opacity: 60%;
     }
 
     .footer-rights {

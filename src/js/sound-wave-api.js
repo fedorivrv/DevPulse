@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 import {
   errorApiIzT,
@@ -132,4 +133,3 @@ export async function postFeedback(nameArtist, ratingArtist, descArtist) {
 function getRandomInt(n) {
   return Math.floor(Math.random() * n) + 1;
 }
-

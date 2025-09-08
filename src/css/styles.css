@@ -18,9 +18,9 @@
 @import url('./loader.css');
 
 @import url('./feedback.css');
-@import url('./star-rating.css');
 /* Sections style */
 @import url('./about.css');
 
 @import url('./artist-modal.css');
+@import url('./feedback-modal.css');
 @import url('./footer.css');

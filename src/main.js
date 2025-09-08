@@ -10,6 +10,7 @@ import { errorApiIzT } from './js/izitoast-functions.js';
 import { showLoader, hideLoader } from './js/loader.js';
 import { scroll } from './js/header.js';
 import { initFeedbacks } from './js/feedback.js'; // тепер викликаємо функцію, а не модуль одразу
+import { openFedbackModal } from './js/feedback-modal';
 
 const btnLdMrEl = document.querySelector('.load-more');
 const listArtistsEl = document.querySelector('.list-artists');
@@ -86,4 +87,13 @@ navListElem.addEventListener('click', e => {
   if (e.target.nodeName !== 'A') return;
   e.preventDefault();
   scroll(e.target.getAttribute('href'));
+});
+
+const backdropFeedbackModal = document.querySelector(
+  '.backdrop-feedback-modal'
+);
+const leaveFeedbackEl = document.querySelector('.leave-feedback');
+leaveFeedbackEl.addEventListener('click', () => {
+  backdropFeedbackModal.classList.add('feedback-is-open');
+  openFedbackModal();
 });
